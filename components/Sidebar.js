@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Modal from "./Modal";
 import CreateForm from "./CreateForm";
 import { createWork } from "../actions";
@@ -5,11 +6,12 @@ import { createWork } from "../actions";
 const SideBar = (props) => {
   const { categories } = props;
   let modal = null;
+  const router = useRouter();
 
   const handleCreateWork = (newWork) => {
     createWork(newWork).then((works) => {
-      console.log(JSON.stringify(works));
       modal.closeModal();
+      router.push("/");
     });
   };
 

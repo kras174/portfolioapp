@@ -16,6 +16,8 @@ class Modal extends React.Component {
     this.closeModal();
   };
 
+  //TODO: Отклчать кнопку "Создать". пока все поля формы не будут заполнены
+
   render() {
     return (
       <div>

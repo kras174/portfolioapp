@@ -1,50 +1,8 @@
-const worksData = [
-  {
-    id: "1",
-    title: "Instaminion.com",
-    releaseYear: 2020,
-    description: "BlaBlaBla",
-    stack: "Wordpress, HTML",
-    image: "/assets/img/Instaminion.png",
-    preview: "",
-  },
-  {
-    id: "2",
-    title: "Keksbi.com",
-    releaseYear: 2020,
-    description: "BlaBlaBla",
-    stack: "HTML",
-    image: "/assets/img/Keksbi.png",
-    preview: "",
-  },
-  {
-    id: "3",
-    title: "Kisel74.ru",
-    releaseYear: 2020,
-    description: "BlaBlaBla",
-    stack: "HTML",
-    image: "/assets/img/kisel74.png",
-    preview: "",
-  },
-  {
-    id: "4",
-    title: "Kvas.com",
-    releaseYear: 2020,
-    description: "BlaBlaBla",
-    stack: "HTML",
-    image: "/assets/img/Kvas.png",
-    preview: "",
-  },
-  {
-    id: "5",
-    title: "MyCompanyWebSite.com",
-    releaseYear: 2020,
-    description: "BlaBlaBla",
-    stack: "HTML",
-    image: "/assets/img/MyCompanyWebSite.png",
-    preview: "",
-  },
-];
+import axios from "axios";
+
+const BASE_URL = "http://localhost:3000";
+
+const worksData = [];
 
 const categoryData = [
   { id: "c-1", name: "React" },
@@ -62,29 +20,17 @@ export const getCategory = () => {
 };
 
 export const getWorks = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(worksData);
-    }, 50);
-  });
+  return axios.get(`${BASE_URL}/api/v1/works`).then((res) => res.data);
 };
 
+// TODO: проверить почему не обновляется слайдер после добавления нового проекта
 export const createWork = (newWork) => {
-  return new Promise((resolve, reject) => {
-    newWork.id = Math.random().toString(36).substr(2, 7);
-    worksData.push(newWork);
-    setTimeout(() => {
-      resolve(worksData);
-    }, 50);
-  });
+  newWork.id = Math.random().toString(36).substr(2, 7);
+  return axios
+    .post(`${BASE_URL}/api/v1/works`, newWork)
+    .then((res) => res.data);
 };
 
 export const getWorkById = (id) => {
-  return new Promise((resolve, reject) => {
-    const workIndex = worksData.findIndex((w) => w.id === id);
-    const work = worksData[workIndex];
-    setTimeout(() => {
-      resolve(work);
-    }, 50);
-  });
+  return axios.get(`${BASE_URL}/api/v1/works/${id}`).then((res) => res.data);
 };

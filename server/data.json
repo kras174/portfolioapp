@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "title": "Instaminion.com",
+    "releaseYear": 2020,
+    "description": "BlaBlaBla",
+    "stack": "Wordpress, HTML",
+    "image": "/assets/img/Instaminion.png",
+    "preview": ""
+  },
+  {
+    "id": "2",
+    "title": "Keksbi.com",
+    "releaseYear": 2020,
+    "description": "BlaBlaBla",
+    "stack": "HTML",
+    "image": "/assets/img/Keksbi.png",
+    "preview": ""
+  },
+  {
+    "id": "3",
+    "title": "Kisel74.ru",
+    "releaseYear": 2020,
+    "description": "BlaBlaBla",
+    "stack": "HTML",
+    "image": "/assets/img/kisel74.png",
+    "preview": ""
+  },
+  {
+    "id": "4",
+    "title": "Kvas.com",
+    "releaseYear": 2020,
+    "description": "BlaBlaBla",
+    "stack": "HTML",
+    "image": "/assets/img/Kvas.png",
+    "preview": ""
+  },
+  {
+    "id": "5",
+    "title": "MyCompanyWebSite.com",
+    "releaseYear": 2020,
+    "description": "BlaBlaBla",
+    "stack": "HTML",
+    "image": "/assets/img/MyCompanyWebSite.png",
+    "preview": ""
+  },
+  {
+    "title": "Тестовый проект",
+    "description": "Описание тестового проекта",
+    "releaseYear": "2020",
+    "image": "https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg",
+    "preview": "https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg",
+    "stack": "React,HTML",
+    "id": "qp1jo95"
+  }
+]

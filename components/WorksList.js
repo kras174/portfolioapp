@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Link from "next/link";
 
+//TODO: Задать фиксированную высоту картинки
+
 class WorksList extends Component {
   renderWorks(works) {
     return works.map((work) => (
