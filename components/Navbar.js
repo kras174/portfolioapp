@@ -1,9 +1,13 @@
+import Link from "next/link";
+
 const Navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div className="container">
-      <a className="navbar-brand" href="#">
-        Портфолио
-      </a>
+      <Link href="/">
+        <a className="navbar-brand" href="#">
+          Портфолио
+        </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -18,25 +22,27 @@ const Navbar = () => (
       <div className="collapse navbar-collapse" id="navbarResponsive">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="#">
-              Главная
-              <span className="sr-only">(current)</span>
-            </a>
+            <Link href="/">
+              <a className="nav-link">
+                Главная
+                <span className="sr-only">(current)</span>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Обо мне
-            </a>
+            <Link href="/about">
+              <a className="nav-link">Обо мне</a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Услуги
-            </a>
+            <Link href="/services">
+              <a className="nav-link">Услуги</a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Контакты
-            </a>
+            <Link href="/contacts">
+              <a className="nav-link">Контакты</a>
+            </Link>
           </li>
         </ul>
       </div>
