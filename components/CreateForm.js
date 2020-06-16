@@ -1,34 +1,82 @@
-const CreateForm = () => {
+import { useState } from "react";
+
+const CreateForm = (props) => {
+  const [form, setForm] = useState({
+    title: "",
+    description: "",
+    releaseYear: "",
+    image: "",
+    preview: "",
+  });
+
+  const handleChange = (event) => {
+    const target = event.target;
+    const name = target.name;
+
+    setForm({
+      ...form,
+      [name]: target.value,
+    });
+  };
+
+  const handleStackChange = (event) => {
+    const { options } = event.target;
+    const optionsLength = options.length;
+    let value = [];
+
+    for (let i = 0; i < optionsLength; i++) {
+      if (options[i].selected) {
+        value.push(options[i].value);
+      }
+    }
+
+    setForm({
+      ...form,
+      stack: value.toString(),
+    });
+  };
+
+  const submitForm = () => {
+    props.handleSaveForm({ ...form });
+  };
+
   return (
     <form>
       <div className="form-group">
         <label htmlFor="name">Название</label>
         <input
+          onChange={handleChange}
+          value={form.title}
+          name="title"
           type="text"
           className="form-control"
           id="name"
           aria-describedby="emailHelp"
-          placeholder="Lord of the Rings"
+          placeholder="Суперпроект"
         />
       </div>
       <div className="form-group">
         <label htmlFor="description">Описание</label>
         <input
+          onChange={handleChange}
+          value={form.description}
+          name="description"
           type="text"
           className="form-control"
           id="description"
-          placeholder="Somewhere in Middle-earth..."
+          placeholder="Опиши кратко"
         />
       </div>
       <div className="form-group">
-        <label htmlFor="description">Год создания</label>
+        <label htmlFor="releaseYear">Год создания</label>
         <input
+          onChange={handleChange}
+          value={form.releaseYear}
+          name="releaseYear"
           type="number"
-          max="5"
-          min="0"
           className="form-control"
-          id="rating"
-          placeholder="3"
+          id="releaseYear"
+          placeholder="Например 2020"
         />
         <small id="emailHelp" className="form-text text-muted">
           Max: 5, Min: 0{" "}
@@ -37,6 +85,9 @@ const CreateForm = () => {
       <div className="form-group">
         <label htmlFor="image">Обложка</label>
         <input
+          onChange={handleChange}
+          value={form.image}
+          name="image"
           type="text"
           className="form-control"
           id="image"
@@ -46,6 +97,9 @@ const CreateForm = () => {
       <div className="form-group">
         <label htmlFor="cover">Скриншоты</label>
         <input
+          onChange={handleChange}
+          value={form.preview}
+          name="preview"
           type="text"
           className="form-control"
           id="cover"
@@ -53,15 +107,22 @@ const CreateForm = () => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="genre">Genre</label>
-        <select multiple className="form-control" id="genre">
-          <option>drama</option>
-          <option>music</option>
-          <option>adventure</option>
-          <option>historical</option>
-          <option>action</option>
+        <label htmlFor="genre">Стэк</label>
+        <select
+          onChange={handleStackChange}
+          multiple
+          className="form-control"
+          id="genre"
+        >
+          <option>React</option>
+          <option>Wordpress</option>
+          <option>Bitrix</option>
+          <option>HTML</option>
         </select>
       </div>
+      <button onClick={submitForm} type="button" className="btn btn-primary">
+        Создать
+      </button>
     </form>
   );
 };

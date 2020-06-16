@@ -4,7 +4,7 @@ const worksData = [
     title: "Instaminion.com",
     releaseYear: 2020,
     description: "BlaBlaBla",
-    stack: "Some frameworks",
+    stack: "Wordpress, HTML",
     image: "/assets/img/Instaminion.png",
     preview: "",
   },
@@ -13,7 +13,7 @@ const worksData = [
     title: "Keksbi.com",
     releaseYear: 2020,
     description: "BlaBlaBla",
-    stack: "Some frameworks",
+    stack: "HTML",
     image: "/assets/img/Keksbi.png",
     preview: "",
   },
@@ -22,7 +22,7 @@ const worksData = [
     title: "Kisel74.ru",
     releaseYear: 2020,
     description: "BlaBlaBla",
-    stack: "Some frameworks",
+    stack: "HTML",
     image: "/assets/img/kisel74.png",
     preview: "",
   },
@@ -31,7 +31,7 @@ const worksData = [
     title: "Kvas.com",
     releaseYear: 2020,
     description: "BlaBlaBla",
-    stack: "Some frameworks",
+    stack: "HTML",
     image: "/assets/img/Kvas.png",
     preview: "",
   },
@@ -40,24 +40,24 @@ const worksData = [
     title: "MyCompanyWebSite.com",
     releaseYear: 2020,
     description: "BlaBlaBla",
-    stack: "Some frameworks",
+    stack: "HTML",
     image: "/assets/img/MyCompanyWebSite.png",
     preview: "",
   },
 ];
 
 const categoryData = [
-  { id: "c-1", name: "react" },
-  { id: "c-2", name: "wordpress" },
-  { id: "c-3", name: "bitrix" },
-  { id: "c-4", name: "html" },
+  { id: "c-1", name: "React" },
+  { id: "c-2", name: "Wordpress" },
+  { id: "c-3", name: "Bitrix" },
+  { id: "c-4", name: "HTML" },
 ];
 
 export const getCategory = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(categoryData);
-    }, 100);
+    }, 50);
   });
 };
 
@@ -65,7 +65,17 @@ export const getWorks = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(worksData);
-    }, 100);
+    }, 50);
+  });
+};
+
+export const createWork = (newWork) => {
+  return new Promise((resolve, reject) => {
+    newWork.id = Math.random().toString(36).substr(2, 7);
+    worksData.push(newWork);
+    setTimeout(() => {
+      resolve(worksData);
+    }, 50);
   });
 };
 
@@ -75,6 +85,6 @@ export const getWorkById = (id) => {
     const work = worksData[workIndex];
     setTimeout(() => {
       resolve(work);
-    }, 100);
+    }, 50);
   });
 };
