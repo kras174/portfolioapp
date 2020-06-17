@@ -43,14 +43,5 @@
     "stack": "HTML",
     "image": "/assets/img/MyCompanyWebSite.png",
     "preview": ""
-  },
-  {
-    "title": "Тестовый проект",
-    "description": "Описание тестового проекта",
-    "releaseYear": "2020",
-    "image": "https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg",
-    "preview": "https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg",
-    "stack": "React,HTML",
-    "id": "qp1jo95"
   }
 ]

@@ -1,10 +1,17 @@
 import { useRouter } from "next/router";
-import { getWorkById } from "../../actions";
+import { getWorkById, deleteWork } from "../../actions";
 
 const Work = (props) => {
   const router = useRouter();
   const { id } = router.query;
   const { work } = props;
+
+  const deleteWorkHandle = (id) => {
+    deleteWork(id).then(() => {
+      router.push("/");
+    });
+  };
+
   return (
     <div className="container">
       <div className="jumbotron">
@@ -12,9 +19,16 @@ const Work = (props) => {
         <p className="lead">{work.description}</p>
         <hr className="my-4" />
         <p>{work.stack}</p>
-        <a className="btn btn-primary btn-lg" href="#" role="button">
+        <button className="btn btn-primary btn-lg mr-2" role="button">
           Демо
-        </a>
+        </button>
+        <button
+          onClick={deleteWorkHandle}
+          className="btn btn-danger btn-lg"
+          role="button"
+        >
+          Удалить
+        </button>
       </div>
     </div>
   );

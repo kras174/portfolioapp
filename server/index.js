@@ -44,6 +44,24 @@ app.prepare().then(() => {
     });
   });
 
+  server.delete("/api/v1/works/:id", (req, res) => {
+    const { id } = req.params;
+
+    const workIndex = worksData.findIndex((w) => w.id === id);
+    worksData.splice(workIndex, 1);
+
+    const pathToFile = path.join(__dirname, filePath);
+    const stringifiedData = JSON.stringify(worksData, null, 2);
+
+    fs.writeFile(pathToFile, stringifiedData, (err) => {
+      if (err) {
+        return res.status(422).send(err);
+      }
+
+      return res.json("Work has been succesfuly deleted!");
+    });
+  });
+
   server.get("*", (req, res) => {
     return handle(req, res);
   });
