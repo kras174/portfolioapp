@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { getWorkById, deleteWork } from "../../actions";
+import { getWorkById, deleteWork } from "../../../actions";
 
 const Work = (props) => {
   const router = useRouter();
@@ -23,19 +23,30 @@ const Work = (props) => {
           Демо
         </button>
         <button
-          onClick={deleteWorkHandle}
-          className="btn btn-danger btn-lg"
+          onClick={() => {
+            deleteWorkHandle(id);
+          }}
+          className="btn btn-danger btn-lg mr-2"
           role="button"
         >
           Удалить
+        </button>
+        <button
+          onClick={() => {
+            router.push(`/works/[id]/edit`, `/works/${id}/edit`);
+          }}
+          className="btn btn-warning btn-lg"
+          role="button"
+        >
+          Редактировать
         </button>
       </div>
     </div>
   );
 };
 
-export async function getServerSideProps(context) {
-  const { id } = context.query;
+export async function getServerSideProps({ query }) {
+  const { id } = query;
   const work = await getWorkById(id);
   return {
     props: { work },

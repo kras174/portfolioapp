@@ -35,6 +35,12 @@ export const getWorkById = (id) => {
   return axios.get(`${BASE_URL}/api/v1/works/${id}`).then((res) => res.data);
 };
 
+export const updateWork = (work) => {
+  return axios
+    .patch(`${BASE_URL}/api/v1/works/${work.id}`, work)
+    .then((res) => res.data);
+};
+
 export const deleteWork = (id) => {
   return axios.delete(`${BASE_URL}/api/v1/works/${id}`).then((res) => res.data);
 };

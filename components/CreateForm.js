@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CreateForm = (props) => {
-  const [form, setForm] = useState({
+  const defaultData = {
     title: "",
     description: "",
     releaseYear: "",
     image: "",
     preview: "",
-  });
+  };
+  const fromData = props.initialData ? { ...props.initialData } : defaultData;
+
+  const [form, setForm] = useState(fromData);
 
   const handleChange = (event) => {
     const target = event.target;
@@ -39,7 +42,7 @@ const CreateForm = (props) => {
   const submitForm = () => {
     props.handleSaveForm({ ...form });
   };
-
+  // TODO: не подсвечиваются селекты, при редактировании проекта
   return (
     <form>
       <div className="form-group">
@@ -120,8 +123,12 @@ const CreateForm = (props) => {
           <option>HTML</option>
         </select>
       </div>
-      <button onClick={submitForm} type="button" className="btn btn-primary">
-        Создать
+      <button
+        onClick={submitForm}
+        type="button"
+        className="btn btn-primary mb-2"
+      >
+        {props.submitButtonText || `Создать`}
       </button>
     </form>
   );
