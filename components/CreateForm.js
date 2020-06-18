@@ -35,7 +35,7 @@ const CreateForm = (props) => {
 
     setForm({
       ...form,
-      stack: value.toString(),
+      stack: value,
     });
   };
 
@@ -126,7 +126,7 @@ const CreateForm = (props) => {
       <button
         onClick={submitForm}
         type="button"
-        className="btn btn-primary mb-2"
+        className="btn btn-outline-primary mb-2"
       >
         {props.submitButtonText || `Создать`}
       </button>

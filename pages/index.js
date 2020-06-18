@@ -3,31 +3,21 @@ import Carousel from "../components/Carousel";
 import WorksList from "../components/WorksList";
 
 import { getWorks, getCategory } from "../actions";
-import { useState, useEffect } from "react";
 
 const Home = (props) => {
-  const { works = [], categories = [] } = props;
-  const [images, setImages] = useState([]);
-
-  useEffect(() => {
-    const { works } = props;
-    const images = works.map((w) => w.image);
-    setImages(images);
-  }, []);
+  const { works = [], categories = [], images = [] } = props;
 
   return (
     <div>
       <div className="home-page">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-3">
-              <Sidebar categories={categories} />
-            </div>
-            <div className="col-lg-9">
-              <Carousel items={images} />
-              <div className="row">
-                <WorksList works={works} />
-              </div>
+        <div className="row">
+          <div className="col-lg-3">
+            <Sidebar categories={categories} />
+          </div>
+          <div className="col-lg-9">
+            <Carousel items={images} />
+            <div className="row">
+              <WorksList works={works} />
             </div>
           </div>
         </div>
@@ -39,8 +29,9 @@ const Home = (props) => {
 export async function getServerSideProps() {
   const works = await getWorks();
   const categories = await getCategory();
+  const images = works.map((w) => w.image).filter((w) => w);
   return {
-    props: { works, categories },
+    props: { works, categories, images },
   };
 }
 

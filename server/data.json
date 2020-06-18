@@ -4,7 +4,10 @@
     "title": "Instaminion.com",
     "releaseYear": 2020,
     "description": "BlaBlaBla",
-    "stack": "Wordpress, HTML",
+    "stack": [
+      "Wordpress",
+      "HTML"
+    ],
     "image": "/assets/img/Instaminion.png",
     "preview": ""
   },
@@ -13,7 +16,9 @@
     "title": "Keksbi.com",
     "releaseYear": 2020,
     "description": "BlaBlaBla",
-    "stack": "HTML",
+    "stack": [
+      "HTML"
+    ],
     "image": "/assets/img/Keksbi.png",
     "preview": ""
   },
@@ -22,7 +27,9 @@
     "title": "Kisel74.ru",
     "releaseYear": 2020,
     "description": "BlaBlaBla",
-    "stack": "HTML",
+    "stack": [
+      "HTML"
+    ],
     "image": "/assets/img/kisel74.png",
     "preview": ""
   },
@@ -31,7 +38,9 @@
     "title": "Kvas.com",
     "releaseYear": 2020,
     "description": "BlaBlaBla",
-    "stack": "HTML",
+    "stack": [
+      "HTML"
+    ],
     "image": "/assets/img/Kvas.png",
     "preview": ""
   },
@@ -40,7 +49,9 @@
     "title": "MyCompanyWebSite.com",
     "releaseYear": 2020,
     "description": "BlaBlaBla",
-    "stack": "HTML",
+    "stack": [
+      "HTML"
+    ],
     "image": "/assets/img/MyCompanyWebSite.png",
     "preview": ""
   }

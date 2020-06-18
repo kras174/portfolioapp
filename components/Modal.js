@@ -23,7 +23,7 @@ class Modal extends React.Component {
       <div>
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-outline-primary"
           data-toggle="modal"
           data-target="#exampleModal"
         >
@@ -60,7 +60,7 @@ class Modal extends React.Component {
                     this.closeButton = ele;
                   }}
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-outline-secondary"
                   data-dismiss="modal"
                 >
                   Закрыть
@@ -68,7 +68,7 @@ class Modal extends React.Component {
                 <button
                   onClick={this.toggleModal}
                   type="button"
-                  className="btn btn-primary"
+                  className="btn btn-outline-primary"
                 >
                   Сохранить
                 </button>

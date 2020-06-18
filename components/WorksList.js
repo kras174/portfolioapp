@@ -1,31 +1,42 @@
 import React, { Component } from "react";
 import Link from "next/link";
 
-//TODO: Задать фиксированную высоту картинки
-
 class WorksList extends Component {
   renderWorks(works) {
     return works.map((work) => (
       <div key={work.id} className="col-lg-4 col-md-6 mb-4">
-        <div className="card h-100">
-          <Link href="/works/[id]" as={`/works/${work.id}`}>
-            <a>
-              <img className="card-img-top img-fluid" src={work.image} alt="" />
-            </a>
-          </Link>
-          <div className="card-body">
-            <h4 className="card-title">
-              <Link href="/works/[id]" as={`/works/${work.id}`}>
-                <a href="#">{work.title}</a>
-              </Link>
-            </h4>
-            <h5>{work.stack}</h5>
-            <p className="card-text">{work.description}</p>
+        <Link href="/works/[id]" as={`/works/${work.id}`}>
+          <div className="card h-100">
+            <img className="img img-fluid mx-auto" src={work.image} alt="" />
+
+            <div className="card-body">
+              <h4 className="card-title">{work.title}</h4>
+              <div className="card-body">
+                <p className="card-text">{work.description}</p>
+              </div>
+              {work.stack.map((item, index) => (
+                <span key={index} className="badge badge-info">
+                  {item}
+                </span>
+              ))}
+            </div>
+            <div className="card-footer">
+              <span className="badge badge-pill badge-dark">
+                {work.releaseYear}
+              </span>
+            </div>
           </div>
-          <div className="card-footer">
-            <small className="text-muted">{work.releaseYear}</small>
-          </div>
-        </div>
+        </Link>
+        <style jsx>{`
+          .card {
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+          }
+          .card:hover {
+            transform: scale(1.1);
+          }
+        `}</style>
       </div>
     ));
   }

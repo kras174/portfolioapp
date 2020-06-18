@@ -13,34 +13,38 @@ const Work = (props) => {
   };
 
   return (
-    <div className="container">
-      <div className="jumbotron">
-        <h1 className="display-4">{work.title}</h1>
-        <p className="lead">{work.description}</p>
-        <hr className="my-4" />
-        <p>{work.stack}</p>
-        <button className="btn btn-primary btn-lg mr-2" role="button">
-          Демо
-        </button>
-        <button
-          onClick={() => {
-            deleteWorkHandle(id);
-          }}
-          className="btn btn-danger btn-lg mr-2"
-          role="button"
-        >
-          Удалить
-        </button>
-        <button
-          onClick={() => {
-            router.push(`/works/[id]/edit`, `/works/${id}/edit`);
-          }}
-          className="btn btn-warning btn-lg"
-          role="button"
-        >
-          Редактировать
-        </button>
-      </div>
+    <div className="jumbotron">
+      <h1 className="display-4">{work.title}</h1>
+      <p className="lead">{work.description}</p>
+      <hr className="my-4" />
+      <p>
+        {work.stack.map((item, index) => (
+          <span key={index} className="badge badge-info">
+            {item}
+          </span>
+        ))}
+      </p>
+      <button className="btn btn-primary btn-lg mr-2" role="button">
+        Демо
+      </button>
+      <button
+        onClick={() => {
+          deleteWorkHandle(id);
+        }}
+        className="btn btn-danger btn-lg mr-2"
+        role="button"
+      >
+        Удалить
+      </button>
+      <button
+        onClick={() => {
+          router.push(`/works/[id]/edit`, `/works/${id}/edit`);
+        }}
+        className="btn btn-warning btn-lg"
+        role="button"
+      >
+        Редактировать
+      </button>
     </div>
   );
 };
