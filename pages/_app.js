@@ -1,8 +1,31 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AlertContext from "../context/AlertContext";
 
-export default function MoneyApp({ Component, pageProps }) {
+import { useState } from "react";
+
+function PortfolioApp({ Component, pageProps }) {
+  const [alert, setAlert] = useState({
+    text: "Проект добавлен!",
+    type: "success",
+    visible: false,
+  });
+
+  const showAlert = (text, type) =>
+    setAlert({
+      text: text,
+      type: type,
+      visible: true,
+    });
+
+  const hideAlert = () =>
+    setAlert({
+      text: "",
+      type: "",
+      visible: false,
+    });
+
   return (
     <div>
       <Head>
@@ -11,12 +34,6 @@ export default function MoneyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
           rel="stylesheet"
         ></link>
-        {/* <link
-          href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/superhero/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-rvwYMW9Z/bbxZfgxHQEKx6D91KwffWAG+XnsoYNCGWi/qL1P9dIVYm1HBiHFqQEt"
-          crossorigin="anonymous"
-        ></link> */}
         <link
           href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/sketchy/bootstrap.min.css"
           rel="stylesheet"
@@ -45,11 +62,12 @@ export default function MoneyApp({ Component, pageProps }) {
           crossOrigin="anonymous"
         ></script>
       </Head>
-
-      <Navbar />
-      <div className="page-container container">
-        <Component {...pageProps} />
-      </div>
+      <AlertContext.Provider value={{ showAlert, hideAlert, alert }}>
+        <Navbar />
+        <div className="page-container container">
+          <Component {...pageProps} />
+        </div>
+      </AlertContext.Provider>
       <Footer />
 
       <style jsx>
@@ -63,3 +81,5 @@ export default function MoneyApp({ Component, pageProps }) {
     </div>
   );
 }
+
+export default PortfolioApp;

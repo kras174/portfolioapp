@@ -3,6 +3,8 @@ import CreateForm from "../../../components/CreateForm";
 import { getWorkById, updateWork } from "../../../actions";
 import Router from "next/router";
 
+//TODO: придумать как вызвать здесь алерт
+
 export default class EditWork extends Component {
   handleUpdateWork = (work) => {
     updateWork(work).then(() => {

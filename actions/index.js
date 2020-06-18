@@ -23,7 +23,6 @@ export const getWorks = () => {
   return axios.get(`${BASE_URL}/api/v1/works`).then((res) => res.data);
 };
 
-// TODO: проверить почему не обновляется слайдер после добавления нового проекта
 export const createWork = (newWork) => {
   newWork.id = Math.random().toString(36).substr(2, 7);
   return axios

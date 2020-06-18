@@ -1,13 +1,19 @@
 import { useRouter } from "next/router";
 import { getWorkById, deleteWork } from "../../../actions";
 
+import AlertContext from "../../../context/AlertContext";
+import { useContext } from "react";
+
 const Work = (props) => {
   const router = useRouter();
   const { id } = router.query;
   const { work } = props;
 
+  const { showAlert } = useContext(AlertContext);
+
   const deleteWorkHandle = (id) => {
     deleteWork(id).then(() => {
+      showAlert(`Проект успешно удалён!`, "danger");
       router.push("/");
     });
   };
@@ -24,8 +30,17 @@ const Work = (props) => {
           </span>
         ))}
       </p>
-      <button className="btn btn-primary btn-lg mr-2" role="button">
+      <button className="btn btn-success btn-lg mr-2" role="button">
         Демо
+      </button>
+      <button
+        onClick={() => {
+          router.push(`/works/[id]/edit`, `/works/${id}/edit`);
+        }}
+        className="btn btn-warning btn-lg mr-2"
+        role="button"
+      >
+        Редактировать
       </button>
       <button
         onClick={() => {
@@ -35,15 +50,6 @@ const Work = (props) => {
         role="button"
       >
         Удалить
-      </button>
-      <button
-        onClick={() => {
-          router.push(`/works/[id]/edit`, `/works/${id}/edit`);
-        }}
-        className="btn btn-warning btn-lg"
-        role="button"
-      >
-        Редактировать
       </button>
     </div>
   );

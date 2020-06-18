@@ -28,6 +28,7 @@
     "releaseYear": 2020,
     "description": "BlaBlaBla",
     "stack": [
+      "Wordpress",
       "HTML"
     ],
     "image": "/assets/img/kisel74.png",

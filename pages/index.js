@@ -1,24 +1,24 @@
 import Sidebar from "../components/Sidebar";
 import Carousel from "../components/Carousel";
 import WorksList from "../components/WorksList";
-
+import AlertContext from "../context/AlertContext";
+import { useContext } from "react";
 import { getWorks, getCategory } from "../actions";
 
 const Home = (props) => {
   const { works = [], categories = [], images = [] } = props;
+  const { showAlert } = useContext(AlertContext);
 
   return (
-    <div>
-      <div className="home-page">
-        <div className="row">
-          <div className="col-lg-3">
-            <Sidebar categories={categories} />
-          </div>
-          <div className="col-lg-9">
-            <Carousel items={images} />
-            <div className="row">
-              <WorksList works={works} />
-            </div>
+    <div className="home-page">
+      <div className="row">
+        <div className="col-lg-3">
+          <Sidebar categories={categories} />
+        </div>
+        <div className="col-lg-9">
+          <Carousel items={images} />
+          <div className="row">
+            <WorksList works={works} />
           </div>
         </div>
       </div>
