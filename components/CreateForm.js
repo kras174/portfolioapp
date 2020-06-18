@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const CreateForm = (props) => {
   const defaultData = {
@@ -11,10 +11,15 @@ const CreateForm = (props) => {
   const fromData = props.initialData ? { ...props.initialData } : defaultData;
 
   const [form, setForm] = useState(fromData);
+  const [formCheck, setFormCheck] = useState(false);
 
   const handleChange = (event) => {
     const target = event.target;
     const name = target.name;
+
+    if (name === "title") {
+      setFormCheck(!!target.value);
+    }
 
     setForm({
       ...form,
@@ -126,7 +131,10 @@ const CreateForm = (props) => {
       <button
         onClick={submitForm}
         type="button"
-        className="btn btn-outline-primary mb-2"
+        className={`btn btn-outline-primary mb-2 ${
+          { formCheck } ? "" : "disabled"
+        } `}
+        disabled={!formCheck}
       >
         {props.submitButtonText || `Создать`}
       </button>

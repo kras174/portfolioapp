@@ -18,11 +18,13 @@ class WorksList extends Component {
               <div className="card-body">
                 <p className="card-text">{work.description}</p>
               </div>
-              {work.stack.map((item, index) => (
-                <span key={index} className="badge badge-info">
-                  {item}
-                </span>
-              ))}
+              {work.stack
+                ? work.stack.map((item, index) => (
+                    <span key={index} className="badge badge-info">
+                      {item}
+                    </span>
+                  ))
+                : null}
             </div>
             <div className="card-footer">
               <span className="badge badge-pill badge-dark">

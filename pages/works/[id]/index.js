@@ -24,20 +24,22 @@ const Work = (props) => {
       <p className="lead">{work.description}</p>
       <hr className="my-4" />
       <p>
-        {work.stack.map((item, index) => (
-          <span key={index} className="badge badge-info">
-            {item}
-          </span>
-        ))}
+        {work.stack
+          ? work.stack.map((item, index) => (
+              <span key={index} className="badge badge-info">
+                {item}
+              </span>
+            ))
+          : null}
       </p>
-      <button className="btn btn-success btn-lg mr-2" role="button">
+      <button className="btn btn-outline-success btn-sm mr-2" role="button">
         Демо
       </button>
       <button
         onClick={() => {
           router.push(`/works/[id]/edit`, `/works/${id}/edit`);
         }}
-        className="btn btn-warning btn-lg mr-2"
+        className="btn btn-outline-warning btn-sm mr-2"
         role="button"
       >
         Редактировать
@@ -46,7 +48,7 @@ const Work = (props) => {
         onClick={() => {
           deleteWorkHandle(id);
         }}
-        className="btn btn-danger btn-lg mr-2"
+        className="btn btn-outline-danger btn-sm mr-2"
         role="button"
       >
         Удалить

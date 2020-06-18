@@ -16,14 +16,12 @@ class Modal extends React.Component {
     this.closeModal();
   };
 
-  //TODO: Отклчать кнопку "Создать". пока все поля формы не будут заполнены
-
   render() {
     return (
       <div>
         <button
           type="button"
-          className="btn btn-outline-primary"
+          className="btn btn-outline-primary btn-sm"
           data-toggle="modal"
           data-target="#exampleModal"
         >
@@ -45,6 +43,9 @@ class Modal extends React.Component {
                   Добавить новый проект
                 </h5>
                 <button
+                  ref={(ele) => {
+                    this.closeButton = ele;
+                  }}
                   type="button"
                   className="close"
                   data-dismiss="modal"
@@ -54,25 +55,6 @@ class Modal extends React.Component {
                 </button>
               </div>
               <div className="modal-body">{this.props.children}</div>
-              <div className="modal-footer">
-                <button
-                  ref={(ele) => {
-                    this.closeButton = ele;
-                  }}
-                  type="button"
-                  className="btn btn-outline-secondary"
-                  data-dismiss="modal"
-                >
-                  Закрыть
-                </button>
-                <button
-                  onClick={this.toggleModal}
-                  type="button"
-                  className="btn btn-outline-primary"
-                >
-                  Сохранить
-                </button>
-              </div>
             </div>
           </div>
         </div>
