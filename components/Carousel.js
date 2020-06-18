@@ -21,7 +21,7 @@ const Carousel = (props) => {
             key={item}
             className={`carousel-item ${index === 1 ? "active" : ""}`}
           >
-            <img className="d-block img-fluid" src={item} alt="" />
+            <img className="d-block img-fluid grayscale" src={item} alt="" />
           </div>
         ))}
       </div>
@@ -46,6 +46,13 @@ const Carousel = (props) => {
       <style jsx>{`
         .carousel-item {
           max-height: 370px;
+        }
+        .grayscale {
+          filter: grayscale(100%);
+          transition: 1s;
+        }
+        .carousel:hover .grayscale {
+          filter: grayscale(0);
         }
       `}</style>
     </div>

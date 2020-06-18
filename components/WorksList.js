@@ -7,7 +7,11 @@ class WorksList extends Component {
       <div key={work.id} className="col-lg-4 col-md-6 mb-4">
         <Link href="/works/[id]" as={`/works/${work.id}`}>
           <div className="card h-100">
-            <img className="img img-fluid mx-auto" src={work.image} alt="" />
+            <img
+              className="img img-fluid mx-auto grayscale"
+              src={work.image}
+              alt=""
+            />
 
             <div className="card-body">
               <h4 className="card-title">{work.title}</h4>
@@ -35,6 +39,13 @@ class WorksList extends Component {
           }
           .card:hover {
             transform: scale(1.1);
+          }
+          .grayscale {
+            filter: grayscale(100%);
+            transition: 1s;
+          }
+          .card:hover .grayscale {
+            filter: grayscale(0);
           }
         `}</style>
       </div>
