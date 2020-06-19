@@ -31,7 +31,14 @@ const SideBar = (props) => {
       <h1 className="my-4">Стэк</h1>
       <div className="list-group">
         {categories.map((c) => (
-          <a key={c.id} href="#" className="list-group-item">
+          <a
+            key={c.id}
+            href="#"
+            className={`list-group-item ${
+              props.activeCategory === c.name ? "active" : ""
+            }`}
+            onClick={() => props.changeCategory(c.name)}
+          >
             {c.name}
           </a>
         ))}

@@ -5,6 +5,7 @@ const BASE_URL = "http://localhost:3000";
 const worksData = [];
 
 const categoryData = [
+  { id: "c-0", name: "Все" },
   { id: "c-1", name: "React" },
   { id: "c-2", name: "Wordpress" },
   { id: "c-3", name: "Bitrix" },

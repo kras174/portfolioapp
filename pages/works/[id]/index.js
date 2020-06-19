@@ -18,8 +18,17 @@ const Work = (props) => {
     });
   };
 
+  const goBack = () => router.push("/");
+
   return (
     <div className="jumbotron">
+      <button
+        className="btn btn-outline-primary btn-sm mb-3"
+        onClick={goBack}
+        role="button"
+      >
+        Назад
+      </button>
       <h1 className="display-4">{work.title}</h1>
       <p className="lead">{work.description}</p>
       <hr className="my-4" />
@@ -32,27 +41,33 @@ const Work = (props) => {
             ))
           : null}
       </p>
-      <button className="btn btn-outline-success btn-sm mr-2" role="button">
-        Демо
-      </button>
-      <button
-        onClick={() => {
-          router.push(`/works/[id]/edit`, `/works/${id}/edit`);
-        }}
-        className="btn btn-outline-warning btn-sm mr-2"
-        role="button"
-      >
-        Редактировать
-      </button>
-      <button
-        onClick={() => {
-          deleteWorkHandle(id);
-        }}
-        className="btn btn-outline-danger btn-sm mr-2"
-        role="button"
-      >
-        Удалить
-      </button>
+      <div className="d-flex button-container">
+        <div className="flex-grow-1">
+          <button className="btn btn-outline-success mr-2" role="button">
+            Демо
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              router.push(`/works/[id]/edit`, `/works/${id}/edit`);
+            }}
+            className="btn btn-outline-warning btn-sm mr-2"
+            role="button"
+          >
+            Редактировать
+          </button>
+          <button
+            onClick={() => {
+              deleteWorkHandle(id);
+            }}
+            className="btn btn-outline-danger btn-sm mr-2"
+            role="button"
+          >
+            Удалить
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

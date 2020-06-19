@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
+
+//TODO: Реализовать кнопку назад
 
 const CreateForm = (props) => {
   const defaultData = {
@@ -12,6 +15,8 @@ const CreateForm = (props) => {
 
   const [form, setForm] = useState(fromData);
   const [formCheck, setFormCheck] = useState(false);
+
+  const router = useRouter();
 
   const handleChange = (event) => {
     const target = event.target;
@@ -47,6 +52,13 @@ const CreateForm = (props) => {
   const submitForm = () => {
     props.handleSaveForm({ ...form });
   };
+
+  const goBack = () => {
+    if (props.submitButtonText) {
+      router.push(`/`);
+    }
+  };
+
   // TODO: не подсвечиваются селекты, при редактировании проекта
   return (
     <form>
@@ -87,7 +99,7 @@ const CreateForm = (props) => {
           placeholder="Например 2020"
         />
         <small id="emailHelp" className="form-text text-muted">
-          Max: 5, Min: 0{" "}
+          Max: 4, Min: 0{" "}
         </small>
       </div>
       <div className="form-group">
@@ -138,6 +150,15 @@ const CreateForm = (props) => {
       >
         {props.submitButtonText || `Создать`}
       </button>
+      {props.submitButtonText && (
+        <button
+          onClick={goBack}
+          type="button"
+          className={`btn btn-outline-primary ml-2 mb-2`}
+        >
+          Назад
+        </button>
+      )}
     </form>
   );
 };
