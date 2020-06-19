@@ -5,6 +5,8 @@ import AlertContext from "../context/AlertContext";
 
 import { useState } from "react";
 
+import "../styles/index.scss";
+
 function PortfolioApp({ Component, pageProps }) {
   const [alert, setAlert] = useState({
     text: "Проект добавлен!",
@@ -69,15 +71,6 @@ function PortfolioApp({ Component, pageProps }) {
         </div>
       </AlertContext.Provider>
       <Footer />
-
-      <style jsx>
-        {`
-          font-family: "Roboto", sans-serif;
-          .page-container {
-            padding-top: 80px;
-          }
-        `}
-      </style>
     </div>
   );
 }
