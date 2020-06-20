@@ -11,12 +11,26 @@ const filePath = "./data.json";
 const fs = require("fs");
 const path = require("path");
 const worksData = require(filePath);
+const secretData = [
+  {
+    title: "Secret Data 1",
+    description: "Spme secret thing",
+  },
+  {
+    title: "Secret Data 2",
+    description: "Passwords!",
+  },
+];
 
 app
   .prepare()
   .then(() => {
     const server = express();
     server.use(bodyParser.json());
+
+    server.get("/api/v1/secret", (req, res) => {
+      return res.json(secretData);
+    });
 
     server.get("/api/v1/works", (req, res) => {
       return res.json(worksData);
