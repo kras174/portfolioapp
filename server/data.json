@@ -1,17 +1,5 @@
 [
   {
-    "id": "1",
-    "title": "Instaminion.com",
-    "releaseYear": 2020,
-    "description": "BlaBlaBla",
-    "stack": [
-      "Wordpress",
-      "HTML"
-    ],
-    "image": "/assets/img/Instaminion.png",
-    "preview": ""
-  },
-  {
     "id": "2",
     "title": "Keksbi.com",
     "releaseYear": 2020,
@@ -19,7 +7,7 @@
     "stack": [
       "HTML"
     ],
-    "image": "/assets/img/Keksbi.png",
+    "image": "/static/images/Keksbi.png",
     "preview": ""
   },
   {
@@ -31,7 +19,7 @@
       "Wordpress",
       "HTML"
     ],
-    "image": "/assets/img/kisel74.png",
+    "image": "/static/images/kisel74.png",
     "preview": ""
   },
   {
@@ -42,7 +30,7 @@
     "stack": [
       "HTML"
     ],
-    "image": "/assets/img/Kvas.png",
+    "image": "/static/images/Kvas.png",
     "preview": ""
   },
   {
@@ -53,7 +41,7 @@
     "stack": [
       "HTML"
     ],
-    "image": "/assets/img/MyCompanyWebSite.png",
+    "image": "/static/images/MyCompanyWebSite.png",
     "preview": ""
   }
 ]

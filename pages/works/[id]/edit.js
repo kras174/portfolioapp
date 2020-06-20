@@ -21,6 +21,7 @@ export default class EditWork extends Component {
           initialData={work}
           handleSaveForm={this.handleUpdateWork}
           submitButtonText="Обновить"
+          workId={this.props.id}
         />
       </div>
     );

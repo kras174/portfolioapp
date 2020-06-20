@@ -1,0 +1,39 @@
+@import "./shared/fonts";
+
+//PAGES
+@import "./index.scss";
+
+//COMPONENTS
+@import "./header.scss";
+
+html,
+body {
+  font-family: "Montserrat", "Helvetica";
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-align: center;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.page-container {
+  flex: 1 0 auto;
+  padding-top: 80px;
+}
+
+footer {
+  flex: 0 0 auto;
+}
+.absolute {
+  position: absolute;
+}

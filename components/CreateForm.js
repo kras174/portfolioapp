@@ -18,6 +18,10 @@ const CreateForm = (props) => {
 
   const router = useRouter();
 
+  const { workId } = props;
+  console.log(workId);
+  console.log(props.initialData);
+
   const handleChange = (event) => {
     const target = event.target;
     const name = target.name;
@@ -55,7 +59,7 @@ const CreateForm = (props) => {
 
   const goBack = () => {
     if (props.submitButtonText) {
-      router.push(`/`);
+      router.push(`/works/${props.initialData.id}`);
     }
   };
 

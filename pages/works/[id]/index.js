@@ -14,11 +14,11 @@ const Work = (props) => {
   const deleteWorkHandle = (id) => {
     deleteWork(id).then(() => {
       showAlert(`Проект успешно удалён!`, "danger");
-      router.push("/");
+      router.push("/portfolio");
     });
   };
 
-  const goBack = () => router.push("/");
+  const goBack = () => router.push("/portfolio");
 
   return (
     <div className="jumbotron">
