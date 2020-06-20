@@ -23,6 +23,14 @@ const MyNavLink = (props) => {
   );
 };
 
+const Login = () => {
+  return <span className="nav-link clickable">Войти</span>;
+};
+
+const Logout = () => {
+  return <span className="nav-link clickable">Выйти</span>;
+};
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { alert } = useContext(AlertContext);
@@ -50,6 +58,12 @@ const Header = () => {
             </NavItem>
             <NavItem>
               <MyNavLink route="/contacts" title="Контакты" />
+            </NavItem>
+            <NavItem>
+              <Login />
+            </NavItem>
+            <NavItem>
+              <Logout />
             </NavItem>
           </Nav>
         </Collapse>
