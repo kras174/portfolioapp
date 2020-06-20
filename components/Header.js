@@ -14,6 +14,8 @@ import {
   Container,
 } from "reactstrap";
 
+import auth0 from "../services/auth0";
+
 const MyNavLink = (props) => {
   const { route, title } = props;
   return (
@@ -24,19 +26,27 @@ const MyNavLink = (props) => {
 };
 
 const Login = () => {
-  return <span className="nav-link clickable">Войти</span>;
+  return (
+    <span onClick={auth0.login} className="nav-link clickable">
+      Войти
+    </span>
+  );
 };
 
 const Logout = () => {
-  return <span className="nav-link clickable">Выйти</span>;
+  return (
+    <span onClick={auth0.logout} className="nav-link clickable">
+      Выйти
+    </span>
+  );
 };
 
-const Header = () => {
+const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { alert } = useContext(AlertContext);
 
   const toggle = () => setIsOpen(!isOpen);
-
+  const { isAuthenticated, user } = props.auth;
   return (
     <Navbar color="light" light expand="md">
       <Container>
@@ -59,12 +69,19 @@ const Header = () => {
             <NavItem>
               <MyNavLink route="/contacts" title="Контакты" />
             </NavItem>
-            <NavItem>
-              <Login />
-            </NavItem>
-            <NavItem>
-              <Logout />
-            </NavItem>
+            {!isAuthenticated && (
+              <NavItem>
+                <Login />
+              </NavItem>
+            )}
+            {isAuthenticated && (
+              <>
+                <img className="avatar" src={user.picture} />
+                <NavItem>
+                  <Logout />
+                </NavItem>
+              </>
+            )}
           </Nav>
         </Collapse>
         {alert.visible && <Alert />}
