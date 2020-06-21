@@ -11,6 +11,7 @@ const filePath = "./data.json";
 const fs = require("fs");
 const path = require("path");
 const worksData = require(filePath);
+const authService = require("./services/auth");
 const secretData = [
   {
     title: "Secret Data 1",
@@ -28,7 +29,7 @@ app
     const server = express();
     server.use(bodyParser.json());
 
-    server.get("/api/v1/secret", (req, res) => {
+    server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
       return res.json(secretData);
     });
 
@@ -99,6 +100,14 @@ app
 
     server.get("*", (req, res) => {
       return handle(req, res);
+    });
+
+    server.use(function (err, req, res, next) {
+      if (err.name === "UnauthorizedError") {
+        res
+          .status(401)
+          .send({ title: "Unauthorized", detail: "Unauthorized Access" });
+      }
     });
 
     const PORT = process.env.PORT || 3000;

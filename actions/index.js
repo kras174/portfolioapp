@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const BASE_URL = "http://localhost:3000";
 
@@ -43,4 +44,20 @@ export const updateWork = (work) => {
 
 export const deleteWork = (id) => {
   return axios.delete(`${BASE_URL}/api/v1/works/${id}`).then((res) => res.data);
+};
+
+const setAuthHeader = () => {
+  const token = Cookies.getJSON("jwt");
+  if (token) {
+    return {
+      headers: { authorization: `Bearer ${Cookies.getJSON("jwt")}` },
+    };
+  }
+  return undefined;
+};
+
+export const getSecretData = async () => {
+  return await axios
+    .get(`${BASE_URL}/api/v1/secret`, setAuthHeader())
+    .then((response) => response.data);
 };
