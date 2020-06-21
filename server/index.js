@@ -22,6 +22,12 @@ const secretData = [
     description: "Passwords!",
   },
 ];
+const ownerData = [
+  {
+    name: "owner",
+    secretKey: "1111111",
+  },
+];
 
 app
   .prepare()
@@ -32,6 +38,15 @@ app
     server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
       return res.json(secretData);
     });
+
+    server.get(
+      "/api/v1/owneronly",
+      authService.checkJWT,
+      authService.checkRole("siteOwner"),
+      (req, res) => {
+        return res.json(ownerData);
+      }
+    );
 
     server.get("/api/v1/works", (req, res) => {
       return res.json(worksData);
@@ -102,13 +117,13 @@ app
       return handle(req, res);
     });
 
-    server.use(function (err, req, res, next) {
-      if (err.name === "UnauthorizedError") {
-        res
-          .status(401)
-          .send({ title: "Unauthorized", detail: "Unauthorized Access" });
-      }
-    });
+    // server.use(function (err, req, res, next) {
+    //   if (err.name === "UnauthorizedError") {
+    //     res
+    //       .status(401)
+    //       .send({ title: "Unauthorized", detail: "Unauthorized Access" });
+    //   }
+    // });
 
     const PORT = process.env.PORT || 3000;
 

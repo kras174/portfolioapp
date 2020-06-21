@@ -50,7 +50,7 @@ const setAuthHeader = () => {
   const token = Cookies.getJSON("jwt");
   if (token) {
     return {
-      headers: { authorization: `Bearer ${Cookies.getJSON("jwt")}` },
+      headers: { authorization: `Bearer ${token}` },
     };
   }
   return undefined;
