@@ -12,7 +12,6 @@ import AlertContext from "../context/AlertContext";
 const Portfolio = (props) => {
   const { works = [], categories = [], images = [] } = props;
   const [filter, setFilter] = useState("Все");
-  let modal = React.createRef();
 
   const router = useRouter();
 
@@ -21,7 +20,6 @@ const Portfolio = (props) => {
   const handleCreateWork = (newWork) => {
     createWork(newWork).then((works) => {
       //TODO: реализовать закрытие модалки
-      modal.closeBtn;
       showAlert(`Проект ${newWork.title} успешно добавлен!`, "success");
       router.push("/portfolio");
     });
@@ -61,11 +59,7 @@ const Portfolio = (props) => {
           <div className="row">
             <WorksList works={filterWork(works) || []} />
           </div>
-          <ModalReact
-            buttonLabel="Добавить проект"
-            className="modalReact"
-            ref={(el) => (modal = el)}
-          >
+          <ModalReact buttonLabel="Добавить проект" className="modalReact">
             <CreateForm handleSaveForm={handleCreateWork} />
           </ModalReact>
         </div>

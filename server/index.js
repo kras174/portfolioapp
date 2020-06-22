@@ -1,6 +1,7 @@
 const next = require("next");
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -12,6 +13,11 @@ const fs = require("fs");
 const path = require("path");
 const worksData = require(filePath);
 const authService = require("./services/auth");
+
+const config = require("./config");
+
+const portfolioRoutes = require("./routes/portfolio");
+
 const secretData = [
   {
     title: "Secret Data 1",
@@ -29,11 +35,17 @@ const ownerData = [
   },
 ];
 
+mongoose
+  .connect(config.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(console.log("---------------Database connected!!"));
+
 app
   .prepare()
   .then(() => {
     const server = express();
     server.use(bodyParser.json());
+
+    server.use("/api/v1/portfolios", portfolioRoutes);
 
     server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
       return res.json(secretData);
@@ -117,13 +129,13 @@ app
       return handle(req, res);
     });
 
-    // server.use(function (err, req, res, next) {
-    //   if (err.name === "UnauthorizedError") {
-    //     res
-    //       .status(401)
-    //       .send({ title: "Unauthorized", detail: "Unauthorized Access" });
-    //   }
-    // });
+    server.use(function (err, req, res, next) {
+      if (err.name === "UnauthorizedError") {
+        res
+          .status(401)
+          .send({ title: "Unauthorized", detail: "Unauthorized Access" });
+      }
+    });
 
     const PORT = process.env.PORT || 3000;
 
