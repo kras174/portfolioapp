@@ -48,44 +48,42 @@ const Header = (props) => {
   const toggle = () => setIsOpen(!isOpen);
   const { isAuthenticated, user } = props.auth;
   return (
-    <Navbar color="light" light expand="md">
-      <Container>
-        <NavbarBrand href="/">Студия WEB-разработки</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
+    <Navbar color="light" light expand="md" className="px-5">
+      <NavbarBrand href="/">Студия WEB-разработки</NavbarBrand>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <Nav className="ml-auto" navbar>
+          <NavItem>
+            <MyNavLink route="/" title="Главная" />
+          </NavItem>
+          <NavItem>
+            <MyNavLink route="/portfolio" title="Портфолио" />
+          </NavItem>
+          <NavItem>
+            <MyNavLink route="/about" title="О нас" />
+          </NavItem>
+          <NavItem>
+            <MyNavLink route="/services" title="Услуги" />
+          </NavItem>
+          <NavItem>
+            <MyNavLink route="/contacts" title="Контакты" />
+          </NavItem>
+          {!isAuthenticated && (
             <NavItem>
-              <MyNavLink route="/" title="Главная" />
+              <Login />
             </NavItem>
-            <NavItem>
-              <MyNavLink route="/portfolio" title="Портфолио" />
-            </NavItem>
-            <NavItem>
-              <MyNavLink route="/about" title="О нас" />
-            </NavItem>
-            <NavItem>
-              <MyNavLink route="/services" title="Услуги" />
-            </NavItem>
-            <NavItem>
-              <MyNavLink route="/contacts" title="Контакты" />
-            </NavItem>
-            {!isAuthenticated && (
+          )}
+          {isAuthenticated && (
+            <>
+              <img className="avatar" src={user.picture} />
               <NavItem>
-                <Login />
+                <Logout />
               </NavItem>
-            )}
-            {isAuthenticated && (
-              <>
-                <img className="avatar" src={user.picture} />
-                <NavItem>
-                  <Logout />
-                </NavItem>
-              </>
-            )}
-          </Nav>
-        </Collapse>
-        {alert.visible && <Alert />}
-      </Container>
+            </>
+          )}
+        </Nav>
+      </Collapse>
+      {alert.visible && <Alert />}
     </Navbar>
   );
 };

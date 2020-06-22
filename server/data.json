@@ -28,6 +28,9 @@
     "releaseYear": 2020,
     "description": "BlaBlaBla",
     "stack": [
+      "React",
+      "Wordpress",
+      "Bitrix",
       "HTML"
     ],
     "image": "/static/images/Kvas.png",
@@ -43,5 +46,109 @@
     ],
     "image": "/static/images/MyCompanyWebSite.png",
     "preview": ""
+  },
+  {
+    "title": "fghdfgh",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "e8fwq1a"
+  },
+  {
+    "title": "sdfgdsfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "ueajeax"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "0c267qz"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "uli0c7y"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "zhslti6"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "lwxc56t"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "4m2iekj"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "9z4jqrn"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "shoespr"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "43282t2"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "42zit9m"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "4poeg5z"
+  },
+  {
+    "title": "dfgsdfgsdfg",
+    "description": "",
+    "releaseYear": "",
+    "image": "",
+    "preview": "",
+    "id": "mfnfoz3"
   }
 ]

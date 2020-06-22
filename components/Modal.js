@@ -1,66 +1,36 @@
-import { getServerSideProps } from "../pages/works/[id]";
-import { render } from "react-dom";
+import React, { useState } from "react";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-class Modal extends React.Component {
-  constructor(props) {
-    super(props);
+const ModalReact = (props) => {
+  const { buttonLabel, className } = props;
 
-    this.closeButton = null;
-  }
+  const [modal, setModal] = useState(false);
 
-  closeModal() {
-    this.closeButton.click();
-  }
+  const toggle = () => setModal(!modal);
 
-  toggleModal = () => {
-    this.closeModal();
-  };
+  const closeBtn = (
+    <a className="close" onClick={toggle}>
+      &times;
+    </a>
+  );
 
-  render() {
-    return (
-      <div>
-        <button
-          type="button"
-          className="btn btn-outline-primary btn-sm"
-          data-toggle="modal"
-          data-target="#exampleModal"
-        >
-          Добавить проект
-        </button>
+  return (
+    <>
+      <Button color="primary" onClick={toggle}>
+        {buttonLabel}
+      </Button>
+      <Modal isOpen={modal} toggle={toggle} className={className}>
+        <ModalHeader toggle={toggle} close={closeBtn}>
+          Добавить новый проект
+        </ModalHeader>
+        <ModalBody>{props.children}</ModalBody>
+        {/* <ModalFooter>
+        <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
+        <Button color="secondary" onClick={toggle}>Cancel</Button>
+      </ModalFooter> */}
+      </Modal>
+    </>
+  );
+};
 
-        <div
-          className="modal fade"
-          id="exampleModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  Добавить новый проект
-                </h5>
-                <button
-                  ref={(ele) => {
-                    this.closeButton = ele;
-                  }}
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">{this.props.children}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default Modal;
+export default ModalReact;

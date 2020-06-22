@@ -2,13 +2,18 @@
 
 //PAGES
 @import "./index.scss";
+@import "./portfolio.scss";
 
 //COMPONENTS
 @import "./header.scss";
+@import "./carousel.scss";
+@import "./workList.scss";
 
 html,
 body {
   font-family: "Montserrat", "Helvetica";
+  padding: 0;
+  margin: 0;
 }
 body {
   min-height: 100vh;
@@ -28,7 +33,6 @@ h5 {
 }
 .page-container {
   flex: 1 0 auto;
-  padding-top: 80px;
 }
 
 footer {

@@ -1,12 +1,31 @@
-import Sidebar from "../components/Sidebar";
-import Carousel from "../components/Carousel";
+import { getWorks, getCategory, createWork } from "../actions";
+import React, { useState, useContext } from "react";
+import { ButtonGroup, Button } from "reactstrap";
+import { useRouter } from "next/router";
+
 import WorksList from "../components/WorksList";
-import { getWorks, getCategory } from "../actions";
-import { useState } from "react";
+import ModalReact from "../components/Modal";
+import CreateForm from "../components/CreateForm";
+
+import AlertContext from "../context/AlertContext";
 
 const Portfolio = (props) => {
   const { works = [], categories = [], images = [] } = props;
   const [filter, setFilter] = useState("Все");
+  let modal = React.createRef();
+
+  const router = useRouter();
+
+  const { showAlert } = useContext(AlertContext);
+
+  const handleCreateWork = (newWork) => {
+    createWork(newWork).then((works) => {
+      //TODO: реализовать закрытие модалки
+      modal.closeBtn;
+      showAlert(`Проект ${newWork.title} успешно добавлен!`, "success");
+      router.push("/portfolio");
+    });
+  };
 
   const changeCategory = (category) => {
     setFilter(category);
@@ -23,19 +42,32 @@ const Portfolio = (props) => {
 
   return (
     <div className="portfolio-page">
+      <h1>Портфолио</h1>
       <div className="row">
-        <div className="col-lg-3">
-          <Sidebar
-            categories={categories}
-            changeCategory={changeCategory}
-            activeCategory={filter}
-          />
+        <div className="portfolio-filter my-3">
+          <ButtonGroup>
+            {categories.map((c) => (
+              <Button
+                key={c.id}
+                className={`${filter === c.name ? "active" : ""}`}
+                onClick={() => changeCategory(c.name)}
+              >
+                {c.name}
+              </Button>
+            ))}
+          </ButtonGroup>
         </div>
-        <div className="col-lg-9">
-          <Carousel items={images} />
+        <div className="portfolio-list">
           <div className="row">
             <WorksList works={filterWork(works) || []} />
           </div>
+          <ModalReact
+            buttonLabel="Добавить проект"
+            className="modalReact"
+            ref={(el) => (modal = el)}
+          >
+            <CreateForm handleSaveForm={handleCreateWork} />
+          </ModalReact>
         </div>
       </div>
     </div>

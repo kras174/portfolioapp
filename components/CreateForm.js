@@ -19,8 +19,6 @@ const CreateForm = (props) => {
   const router = useRouter();
 
   const { workId } = props;
-  console.log(workId);
-  console.log(props.initialData);
 
   const handleChange = (event) => {
     const target = event.target;

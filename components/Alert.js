@@ -24,9 +24,10 @@ const Alert = () => {
           .alert-container {
             position: absolute;
             top: 55px;
-            width: 100%;
+            width: 50vw;
             opacity: 0;
             animation: alert 300ms ease-in forwards;
+            z-index: 10;
           }
           .alert-show {
           }

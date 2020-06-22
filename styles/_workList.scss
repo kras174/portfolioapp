@@ -1,0 +1,31 @@
+.portfolio-item {
+  a:hover {
+    text-decoration: none;
+  }
+}
+.card {
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  .card-body {
+    h2 {
+      text-decoration: none;
+      color: #000;
+      text-transform: uppercase;
+    }
+    p {
+      text-decoration: none;
+      color: #000;
+      font-size: 16px;
+    }
+  }
+  &:hover {
+    .grayscale {
+      filter: grayscale(0);
+    }
+  }
+}
+.grayscale {
+  filter: grayscale(100%);
+  transition: 1s;
+}

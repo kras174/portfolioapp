@@ -1,55 +1,41 @@
 import React, { Component } from "react";
 import Link from "next/link";
+import { Card, CardImg, CardBody, CardFooter } from "reactstrap";
 
 class WorksList extends Component {
   renderWorks(works) {
     return works.map((work) => (
-      <div key={work.id} className="col-lg-4 col-md-6 mb-4">
+      <div key={work.id} className="portfolio-item col-lg-4 col-md-12 mb-4">
         <Link href="/works/[id]" as={`/works/${work.id}`}>
-          <div className="card h-100">
-            <img
-              className="img img-fluid mx-auto grayscale"
-              src={work.image}
-              alt=""
-            />
+          <a>
+            <Card className="h-100">
+              <CardImg
+                className="img img-fluid mx-auto grayscale"
+                top
+                width="100%"
+                src={work.image}
+                alt="Card image cap"
+              />
 
-            <div className="card-body">
-              <h4 className="card-title">{work.title}</h4>
-              <div className="card-body">
-                <p className="card-text">{work.description}</p>
-              </div>
-              {work.stack
-                ? work.stack.map((item, index) => (
-                    <span key={index} className="badge badge-info">
-                      {item}
-                    </span>
-                  ))
-                : null}
-            </div>
-            <div className="card-footer">
-              <span className="badge badge-pill badge-dark">
-                {work.releaseYear}
-              </span>
-            </div>
-          </div>
+              <CardBody>
+                <h2>{work.title}</h2>
+                <p>{work.description}</p>
+                {work.stack
+                  ? work.stack.map((item, index) => (
+                      <span key={index} className="badge badge-info">
+                        {item}
+                      </span>
+                    ))
+                  : null}
+              </CardBody>
+              <CardFooter>
+                <span className="badge badge-pill badge-dark">
+                  {work.releaseYear}
+                </span>
+              </CardFooter>
+            </Card>
+          </a>
         </Link>
-        <style jsx>{`
-          .card {
-            cursor: pointer;
-            overflow: hidden;
-            transition: all 0.3s ease-out;
-          }
-          .card:hover {
-            transform: scale(1.1);
-          }
-          .grayscale {
-            filter: grayscale(100%);
-            transition: 1s;
-          }
-          .card:hover .grayscale {
-            filter: grayscale(0);
-          }
-        `}</style>
       </div>
     ));
   }
