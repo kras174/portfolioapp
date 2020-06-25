@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 
 const ModalReact = (props) => {
-  const { buttonLabel, className } = props;
+  const { isOpen, toggle, buttonLabel, className } = props;
 
-  const [modal, setModal] = useState(false);
+  // const [modal, setModal] = useState(false);
 
-  const toggle = () => setModal(!modal);
+  // const toggle = () => setModal(!modal);
 
   const closeBtn = (
     <a className="close" onClick={toggle}>
@@ -19,7 +19,7 @@ const ModalReact = (props) => {
       <Button color="primary" onClick={toggle}>
         {buttonLabel}
       </Button>
-      <Modal isOpen={modal} toggle={toggle} className={className}>
+      <Modal isOpen={isOpen} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle} close={closeBtn}>
           Добавить новый проект
         </ModalHeader>

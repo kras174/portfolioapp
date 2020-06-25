@@ -2,7 +2,7 @@ import CarouselReact from "../components/Carousel";
 import { getWorks, getCategory } from "../actions";
 
 const Home = (props) => {
-  const { user } = props.auth;
+  const { user = "" } = props.auth;
   const { images = [] } = props;
 
   return (

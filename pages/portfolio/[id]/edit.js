@@ -4,8 +4,6 @@ import { getWorkById, updateWork } from "../../../actions";
 import Router from "next/router";
 import withAuth from "../../../components/hoc/withAuth";
 
-//TODO: придумать как вызвать здесь алерт
-
 class EditWork extends Component {
   handleUpdateWork = (work) => {
     updateWork(work)

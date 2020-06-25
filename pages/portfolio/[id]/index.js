@@ -8,7 +8,7 @@ const Work = (props) => {
   const goBack = () => router.push("/portfolio");
 
   return (
-    <div className="jumbotron">
+    <div className="jumbotron mx-5 my-5">
       <button
         className="btn btn-outline-primary btn-sm mb-3"
         onClick={goBack}
@@ -28,6 +28,9 @@ const Work = (props) => {
             ))
           : null}
       </p>
+      <span className="badge badge-pill badge-dark mb-4">
+        {work.releaseYear}
+      </span>
       <div className="d-flex button-container">
         <div className="flex-grow-1">
           <button className="btn btn-outline-success mr-2" role="button">
@@ -35,6 +38,18 @@ const Work = (props) => {
           </button>
         </div>
       </div>
+      {work.preview && (
+        <>
+          <hr className="my-4" />
+          <div className="preview-imgs">
+            <img
+              src={work.preview}
+              alt={work.title}
+              className="img img-fluid mx-auto"
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };

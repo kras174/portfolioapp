@@ -18,10 +18,14 @@ const Portfolio = (props) => {
 
   const { showAlert } = useContext(AlertContext);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleHandle = () => setIsOpen(!isOpen);
+
   const createWorkHandle = (newWork) => {
     createWork(newWork)
       .then((works) => {
-        //TODO: реализовать закрытие модалки
+        toggleHandle();
         showAlert(`Проект ${newWork.title} успешно добавлен!`, "success");
         router.push("/portfolio");
       })
@@ -63,11 +67,18 @@ const Portfolio = (props) => {
           <div className="row">
             <WorksList auth={props.auth} works={filterWork(works) || []} />
           </div>
-          <hr />
           {isAuthenticated && isSiteOwner && (
-            <ModalReact buttonLabel="Добавить проект" className="modalReact">
-              <CreateForm handleSaveForm={createWorkHandle} />
-            </ModalReact>
+            <>
+              <hr />
+              <ModalReact
+                isOpen={isOpen}
+                toggle={toggleHandle}
+                buttonLabel="Добавить проект"
+                className="modalReact"
+              >
+                <CreateForm handleSaveForm={createWorkHandle} />
+              </ModalReact>
+            </>
           )}
         </div>
       </div>
