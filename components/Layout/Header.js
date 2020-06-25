@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
-import { useContext } from "react";
-import AlertContext from "../context/AlertContext";
-import Alert from "../components/Alert";
+import AlertContext from "../../context/AlertContext";
+import Alert from "../UI/Alert";
 
 import {
   Collapse,
@@ -11,16 +11,20 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  Container,
 } from "reactstrap";
 
-import auth0 from "../services/auth0";
+import auth0 from "../../services/auth0";
 
 const MyNavLink = (props) => {
-  const { route, title } = props;
+  const { route, title, activeClassName } = props;
+  let className = "header-default-link nav-link";
+  const router = useRouter();
+  if (router.pathname === route) {
+    className = `${className} ${activeClassName}`;
+  }
   return (
     <Link href={route}>
-      <a className="header-default-link nav-link">{title}</a>
+      <a className={className}>{title}</a>
     </Link>
   );
 };
@@ -54,19 +58,35 @@ const Header = (props) => {
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <MyNavLink route="/" title="Главная" />
+            <MyNavLink activeClassName="activeLink" route="/" title="Главная" />
           </NavItem>
           <NavItem>
-            <MyNavLink route="/portfolio" title="Портфолио" />
+            <MyNavLink
+              activeClassName="activeLink"
+              route="/portfolio"
+              title="Портфолио"
+            />
           </NavItem>
           <NavItem>
-            <MyNavLink route="/about" title="О нас" />
+            <MyNavLink
+              activeClassName="activeLink"
+              route="/about"
+              title="О нас"
+            />
           </NavItem>
           <NavItem>
-            <MyNavLink route="/services" title="Услуги" />
+            <MyNavLink
+              activeClassName="activeLink"
+              route="/services"
+              title="Услуги"
+            />
           </NavItem>
           <NavItem>
-            <MyNavLink route="/contacts" title="Контакты" />
+            <MyNavLink
+              activeClassName="activeLink"
+              route="/contacts"
+              title="Контакты"
+            />
           </NavItem>
           {!isAuthenticated && (
             <NavItem>

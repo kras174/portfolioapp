@@ -1,12 +1,7 @@
-import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 
 const ModalReact = (props) => {
   const { isOpen, toggle, buttonLabel, className } = props;
-
-  // const [modal, setModal] = useState(false);
-
-  // const toggle = () => setModal(!modal);
 
   const closeBtn = (
     <a className="close" onClick={toggle}>

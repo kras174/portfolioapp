@@ -4,7 +4,7 @@ import { ButtonGroup, Button } from "reactstrap";
 import { useRouter } from "next/router";
 
 import WorksList from "../../components/WorksList";
-import ModalReact from "../../components/Modal";
+import ModalReact from "../../components/UI/Modal";
 import CreateForm from "../../components/CreateForm";
 
 import AlertContext from "../../context/AlertContext";

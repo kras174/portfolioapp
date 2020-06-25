@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-//TODO: Реализовать кнопку назад
-
 const CreateForm = (props) => {
   const defaultData = {
     title: "",
@@ -14,19 +12,12 @@ const CreateForm = (props) => {
   const fromData = props.initialData ? { ...props.initialData } : defaultData;
 
   const [form, setForm] = useState(fromData);
-  const [formCheck, setFormCheck] = useState(false);
 
   const router = useRouter();
-
-  const { workId } = props;
 
   const handleChange = (event) => {
     const target = event.target;
     const name = target.name;
-
-    if (name === "title") {
-      setFormCheck(!!target.value);
-    }
 
     setForm({
       ...form,
@@ -145,10 +136,7 @@ const CreateForm = (props) => {
       <button
         onClick={submitForm}
         type="button"
-        className={`btn btn-outline-primary mb-2 ${
-          { formCheck } ? "" : "disabled"
-        } `}
-        disabled={!formCheck}
+        className={`btn btn-outline-primary mb-2`}
       >
         {props.submitButtonText || `Создать`}
       </button>

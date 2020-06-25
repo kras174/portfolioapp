@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/Layout/Header";
+import Footer from "../components/Layout/Footer";
 import AlertContext from "../context/AlertContext";
 
 import { useState, Component } from "react";
