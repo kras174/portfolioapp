@@ -39,7 +39,7 @@ function PortfolioApp({ Component, pageProps, auth }) {
       </Head>
       <AlertContext.Provider value={{ showAlert, hideAlert, alert }}>
         <Header auth={auth} />
-        <div className="page-container my-5 mx-5">
+        <div className="page-container">
           <Component {...pageProps} auth={auth} />
         </div>
       </AlertContext.Provider>

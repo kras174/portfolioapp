@@ -34,7 +34,6 @@ exports.createPortfolio = function (req, res) {
   });
 };
 
-//TODO доделать удаление и обновление портфолио
 exports.updatePortfolio = function (req, res) {
   const portfolioId = req.params.id;
   const portfolioData = req.body;

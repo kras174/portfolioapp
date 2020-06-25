@@ -40,7 +40,7 @@ app
     const server = express();
     server.use(bodyParser.json());
 
-    server.use("/api/v1/portfolios", portfolioRoutes);
+    server.use("/api/v1/portfolio", portfolioRoutes);
 
     server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
       return res.json(secretData);

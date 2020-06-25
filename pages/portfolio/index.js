@@ -1,13 +1,13 @@
-import { getWorks, getCategory, createWork } from "../actions";
+import { getWorks, getCategory, createWork } from "../../actions";
 import React, { useState, useContext } from "react";
 import { ButtonGroup, Button } from "reactstrap";
 import { useRouter } from "next/router";
 
-import WorksList from "../components/WorksList";
-import ModalReact from "../components/Modal";
-import CreateForm from "../components/CreateForm";
+import WorksList from "../../components/WorksList";
+import ModalReact from "../../components/Modal";
+import CreateForm from "../../components/CreateForm";
 
-import AlertContext from "../context/AlertContext";
+import AlertContext from "../../context/AlertContext";
 
 const Portfolio = (props) => {
   const { works = [], categories = [], images = [] } = props;
@@ -42,11 +42,11 @@ const Portfolio = (props) => {
   };
 
   return (
-    <div className="portfolio-page">
+    <div className="portfolio-page my-5 mx-5">
       <h1>Портфолио</h1>
       <div className="row">
         <div className="portfolio-filter col-12 my-3">
-          <ButtonGroup>
+          <ButtonGroup className="d-flex flex-wrap">
             {categories.map((c) => (
               <Button
                 key={c.id}

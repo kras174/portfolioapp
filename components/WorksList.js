@@ -20,7 +20,7 @@ const WorksList = (props) => {
   const renderWorks = (works) => {
     return works.map((work, index) => (
       <div key={work._id} className="portfolio-item col-lg-4 col-md-12 mb-4">
-        <Link href="/portfolios/[id]" as={`/portfolios/${work._id}`}>
+        <Link href="/portfolio/[id]" as={`/portfolio/${work._id}`}>
           <a>
             <Card className="h-100">
               <CardImg
@@ -55,8 +55,8 @@ const WorksList = (props) => {
             <Button
               onClick={() => {
                 router.push(
-                  `/portfolios/[id]/edit`,
-                  `/portfolios/${work._id}/edit`
+                  `/portfolio/[id]/edit`,
+                  `/portfolio/${work._id}/edit`
                 );
               }}
               className="btn btn-warning btn-sm mr-2"

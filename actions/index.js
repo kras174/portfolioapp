@@ -34,29 +34,29 @@ export const getCategory = () => {
 };
 
 export const getWorks = async () => {
-  return await axiosInstance.get(`/portfolios`).then((res) => res.data);
+  return await axiosInstance.get(`/portfolio`).then((res) => res.data);
 };
 
 export const getWorkById = async (id) => {
-  return await axiosInstance.get(`/portfolios/${id}`).then((res) => res.data);
+  return await axiosInstance.get(`/portfolio/${id}`).then((res) => res.data);
 };
 
 export const createWork = async (newWork) => {
   newWork.id = Math.random().toString(36).substr(2, 7);
   return await axiosInstance
-    .post(`/portfolios`, newWork, setAuthHeader())
+    .post(`/portfolio`, newWork, setAuthHeader())
     .then((res) => res.data);
 };
 
 export const updateWork = async (work) => {
   return await axiosInstance
-    .patch(`/portfolios/${work._id}`, work, setAuthHeader())
+    .patch(`/portfolio/${work._id}`, work, setAuthHeader())
     .then((res) => res.data);
 };
 
 export const deleteWork = async (id) => {
   return await axiosInstance
-    .delete(`/portfolios/${id}`, setAuthHeader())
+    .delete(`/portfolio/${id}`, setAuthHeader())
     .then((res) => res.data);
 };
 

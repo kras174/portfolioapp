@@ -18,7 +18,7 @@ class EditWork extends Component {
   render() {
     const { work } = this.props;
     return (
-      <div className="container">
+      <div className="my-5 mx-5">
         <h1>Редактор проекта</h1>
         <CreateForm
           initialData={work}
