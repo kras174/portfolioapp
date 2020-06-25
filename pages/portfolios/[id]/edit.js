@@ -8,9 +8,11 @@ import withAuth from "../../../components/hoc/withAuth";
 
 class EditWork extends Component {
   handleUpdateWork = (work) => {
-    updateWork(work).then(() => {
-      Router.push(`/portfolios/[id]`, `/portfolios/${work._id}`);
-    });
+    updateWork(work)
+      .then(() => {
+        Router.push(`/portfolios/[id]`, `/portfolios/${work._id}`);
+      })
+      .catch((err) => console.error(err));
   };
 
   render() {
@@ -37,4 +39,4 @@ export async function getServerSideProps({ query }) {
   };
 }
 
-export default withAuth(EditWork);
+export default withAuth(EditWork, "siteOwner");

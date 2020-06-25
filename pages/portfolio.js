@@ -12,17 +12,20 @@ import AlertContext from "../context/AlertContext";
 const Portfolio = (props) => {
   const { works = [], categories = [], images = [] } = props;
   const [filter, setFilter] = useState("Все");
+  const { isAuthenticated } = props.auth;
 
   const router = useRouter();
 
   const { showAlert } = useContext(AlertContext);
 
   const handleCreateWork = (newWork) => {
-    createWork(newWork).then((works) => {
-      //TODO: реализовать закрытие модалки
-      showAlert(`Проект ${newWork.title} успешно добавлен!`, "success");
-      router.push("/portfolio");
-    });
+    createWork(newWork)
+      .then((works) => {
+        //TODO: реализовать закрытие модалки
+        showAlert(`Проект ${newWork.title} успешно добавлен!`, "success");
+        router.push("/portfolio");
+      })
+      .catch((err) => console.error(err));
   };
 
   const changeCategory = (category) => {
@@ -61,9 +64,11 @@ const Portfolio = (props) => {
             <WorksList works={filterWork(works) || []} />
           </div>
           <hr />
-          <ModalReact buttonLabel="Добавить проект" className="modalReact">
-            <CreateForm handleSaveForm={handleCreateWork} />
-          </ModalReact>
+          {isAuthenticated && (
+            <ModalReact buttonLabel="Добавить проект" className="modalReact">
+              <CreateForm handleSaveForm={handleCreateWork} />
+            </ModalReact>
+          )}
         </div>
       </div>
     </div>

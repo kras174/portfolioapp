@@ -10,22 +10,22 @@ router.get("/:id", portfolioCtrl.getPortfoliosById);
 
 router.post(
   "",
-  // authService.checkJWT,
-  // authService.checkRole("siteOwner"),
+  authService.checkJWT,
+  authService.checkRole("siteOwner"),
   portfolioCtrl.createPortfolio
 );
 
 router.patch(
   "/:id",
-  // authService.checkJWT,
-  // authService.checkRole("siteOwner"),
+  authService.checkJWT,
+  authService.checkRole("siteOwner"),
   portfolioCtrl.updatePortfolio
 );
 
 router.delete(
   "/:id",
-  // authService.checkJWT,
-  // authService.checkRole("siteOwner"),
+  authService.checkJWT,
+  authService.checkRole("siteOwner"),
   portfolioCtrl.deletePortfolio
 );
 

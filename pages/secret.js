@@ -8,14 +8,19 @@ class Secret extends React.Component {
 
   async componentDidMount() {
     const secretData = await getSecretData();
-
     this.setState({
       secretData,
     });
   }
 
   render() {
-    return <h1>Secret Page Content</h1>;
+    const { isAuthenticated } = this.props.auth;
+    return (
+      <>
+        <h1>Secret Page Content</h1>
+        {isAuthenticated && <h2>secretData</h2>}
+      </>
+    );
   }
 }
 
