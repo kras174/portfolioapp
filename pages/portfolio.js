@@ -42,7 +42,7 @@ const Portfolio = (props) => {
     <div className="portfolio-page">
       <h1>Портфолио</h1>
       <div className="row">
-        <div className="portfolio-filter my-3">
+        <div className="portfolio-filter col-12 my-3">
           <ButtonGroup>
             {categories.map((c) => (
               <Button
@@ -54,11 +54,13 @@ const Portfolio = (props) => {
               </Button>
             ))}
           </ButtonGroup>
+          <hr />
         </div>
-        <div className="portfolio-list">
+        <div className="portfolio-list col-12">
           <div className="row">
             <WorksList works={filterWork(works) || []} />
           </div>
+          <hr />
           <ModalReact buttonLabel="Добавить проект" className="modalReact">
             <CreateForm handleSaveForm={handleCreateWork} />
           </ModalReact>

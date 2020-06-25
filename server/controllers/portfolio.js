@@ -9,6 +9,18 @@ exports.getPortfolios = function (req, res) {
     return res.json(allPortfolios);
   });
 };
+
+exports.getPortfoliosById = function (req, res) {
+  const portfolioId = req.params.id;
+  Portfolio.findById(portfolioId, (err, foundPortfolio) => {
+    if (err) {
+      return res.status(422).send(err);
+    }
+
+    return res.json(foundPortfolio);
+  });
+};
+
 exports.createPortfolio = function (req, res) {
   const portfolioData = req.body;
   const portfolio = new Portfolio(portfolioData);
@@ -21,6 +33,7 @@ exports.createPortfolio = function (req, res) {
     return res.json(createdPortfolio);
   });
 };
+
 //TODO доделать удаление и обновление портфолио
 exports.updatePortfolio = function (req, res) {
   const portfolioId = req.params.id;

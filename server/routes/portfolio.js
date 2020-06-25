@@ -4,31 +4,28 @@ const authService = require("../services/auth");
 
 const portfolioCtrl = require("../controllers/portfolio");
 
-router.get(
-  "",
-  authService.checkJWT,
-  authService.checkRole("siteOwner"),
-  portfolioCtrl.getPortfolios
-);
+router.get("", portfolioCtrl.getPortfolios);
+
+router.get("/:id", portfolioCtrl.getPortfoliosById);
 
 router.post(
   "",
-  authService.checkJWT,
-  authService.checkRole("siteOwner"),
+  // authService.checkJWT,
+  // authService.checkRole("siteOwner"),
   portfolioCtrl.createPortfolio
 );
 
 router.patch(
-  "",
-  authService.checkJWT,
-  authService.checkRole("siteOwner"),
+  "/:id",
+  // authService.checkJWT,
+  // authService.checkRole("siteOwner"),
   portfolioCtrl.updatePortfolio
 );
 
 router.delete(
-  "",
-  authService.checkJWT,
-  authService.checkRole("siteOwner"),
+  "/:id",
+  // authService.checkJWT,
+  // authService.checkRole("siteOwner"),
   portfolioCtrl.deletePortfolio
 );
 

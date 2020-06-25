@@ -19,16 +19,14 @@ exports.checkJWT = jwt({
 exports.checkRole = function (role) {
   return function (req, res, next) {
     const user = req.user;
-
+    console.log(user);
     if (user && user[namespace + "role"] === role) {
       next();
     } else {
-      return res
-        .status(401)
-        .send({
-          title: "Not Authorized",
-          message: "Please be owner to authorized this data",
-        });
+      return res.status(401).send({
+        title: "Not Authorized",
+        message: "Please be owner to authorized this data",
+      });
     }
   };
 };

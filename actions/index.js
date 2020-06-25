@@ -22,28 +22,32 @@ export const getCategory = () => {
 };
 
 export const getWorks = () => {
-  return axios.get(`${BASE_URL}/api/v1/works`).then((res) => res.data);
+  return axios.get(`${BASE_URL}/api/v1/portfolios`).then((res) => res.data);
 };
 
 export const createWork = (newWork) => {
   newWork.id = Math.random().toString(36).substr(2, 7);
   return axios
-    .post(`${BASE_URL}/api/v1/works`, newWork)
+    .post(`${BASE_URL}/api/v1/portfolios`, newWork)
     .then((res) => res.data);
 };
 
 export const getWorkById = (id) => {
-  return axios.get(`${BASE_URL}/api/v1/works/${id}`).then((res) => res.data);
+  return axios
+    .get(`${BASE_URL}/api/v1/portfolios/${id}`)
+    .then((res) => res.data);
 };
 
 export const updateWork = (work) => {
   return axios
-    .patch(`${BASE_URL}/api/v1/works/${work.id}`, work)
+    .patch(`${BASE_URL}/api/v1/portfolios/${work._id}`, work)
     .then((res) => res.data);
 };
 
 export const deleteWork = (id) => {
-  return axios.delete(`${BASE_URL}/api/v1/works/${id}`).then((res) => res.data);
+  return axios
+    .delete(`${BASE_URL}/api/v1/portfolios/${id}`)
+    .then((res) => res.data);
 };
 
 const setAuthHeader = () => {

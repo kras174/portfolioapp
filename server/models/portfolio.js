@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const portfolioSchema = new Schema({
   title: String,
-  releaseYear: Date,
+  releaseYear: Number,
   description: String,
   stack: Array,
   image: String,

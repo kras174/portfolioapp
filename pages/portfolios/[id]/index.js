@@ -50,7 +50,7 @@ const Work = (props) => {
         <div>
           <button
             onClick={() => {
-              router.push(`/works/[id]/edit`, `/works/${id}/edit`);
+              router.push(`/portfolios/[id]/edit`, `/portfolios/${id}/edit`);
             }}
             className="btn btn-outline-warning btn-sm mr-2"
             role="button"

@@ -57,7 +57,7 @@ const CreateForm = (props) => {
 
   const goBack = () => {
     if (props.submitButtonText) {
-      router.push(`/works/${props.initialData.id}`);
+      router.push(`/portfolios/${props.initialData._id}`);
     }
   };
 

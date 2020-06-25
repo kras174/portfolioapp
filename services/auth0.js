@@ -118,5 +118,5 @@ class Auth0 {
   }
 }
 
-const auth0Clolient = new Auth0();
-export default auth0Clolient;
+const auth0Client = new Auth0();
+export default auth0Client;

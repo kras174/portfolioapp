@@ -4,9 +4,9 @@ import { Card, CardImg, CardBody, CardFooter } from "reactstrap";
 
 class WorksList extends Component {
   renderWorks(works) {
-    return works.map((work) => (
-      <div key={work.id} className="portfolio-item col-lg-4 col-md-12 mb-4">
-        <Link href="/works/[id]" as={`/works/${work.id}`}>
+    return works.map((work, index) => (
+      <div key={work._id} className="portfolio-item col-lg-4 col-md-12 mb-4">
+        <Link href="/portfolios/[id]" as={`/portfolios/${work._id}`}>
           <a>
             <Card className="h-100">
               <CardImg

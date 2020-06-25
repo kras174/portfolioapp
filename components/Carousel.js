@@ -35,7 +35,7 @@ const CarouselReact = (props) => {
         className="carousel-item"
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={index}
+        key={index + Math.random()}
       >
         <img src={item} alt="" />
         <CarouselCaption captionText="" captionHeader="" />

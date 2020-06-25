@@ -35,16 +35,5 @@
     ],
     "image": "/static/images/Kvas.png",
     "preview": ""
-  },
-  {
-    "id": "5",
-    "title": "MyCompanyWebSite.com!!",
-    "releaseYear": 2020,
-    "description": "BlaBlaBla",
-    "stack": [
-      "HTML"
-    ],
-    "image": "/static/images/MyCompanyWebSite.png",
-    "preview": ""
   }
 ]
