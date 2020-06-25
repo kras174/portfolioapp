@@ -10,7 +10,7 @@ class EditWork extends Component {
   handleUpdateWork = (work) => {
     updateWork(work)
       .then(() => {
-        Router.push(`/portfolios/[id]`, `/portfolios/${work._id}`);
+        Router.push(`/portfolio`, `/portfolio`);
       })
       .catch((err) => console.error(err));
   };

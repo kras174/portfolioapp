@@ -1,26 +1,9 @@
 import { useRouter } from "next/router";
-import { getWorkById, deleteWork } from "../../../actions";
-
-import AlertContext from "../../../context/AlertContext";
-import { useContext } from "react";
+import { getWorkById } from "../../../actions";
 
 const Work = (props) => {
   const router = useRouter();
-  const { id } = router.query;
   const { work } = props;
-
-  const { showAlert } = useContext(AlertContext);
-
-  const { isAuthenticated } = props.auth;
-
-  const deleteWorkHandle = (id) => {
-    deleteWork(id)
-      .then(() => {
-        showAlert(`Проект успешно удалён!`, "danger");
-        router.push("/portfolio");
-      })
-      .catch((err) => console.error(err));
-  };
 
   const goBack = () => router.push("/portfolio");
 
@@ -51,28 +34,6 @@ const Work = (props) => {
             Демо
           </button>
         </div>
-        {isAuthenticated && (
-          <div>
-            <button
-              onClick={() => {
-                router.push(`/portfolios/[id]/edit`, `/portfolios/${id}/edit`);
-              }}
-              className="btn btn-outline-warning btn-sm mr-2"
-              role="button"
-            >
-              Редактировать
-            </button>
-            <button
-              onClick={() => {
-                deleteWorkHandle(id);
-              }}
-              className="btn btn-outline-danger btn-sm mr-2"
-              role="button"
-            >
-              Удалить
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

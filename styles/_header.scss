@@ -9,3 +9,11 @@ nav {
   margin-left: 10px;
   margin-top: 5px;
 }
+.portfolio-item {
+  position: relative;
+  .admin-buttons {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+  }
+}

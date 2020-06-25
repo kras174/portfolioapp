@@ -1,9 +1,23 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { Card, CardImg, CardBody, CardFooter } from "reactstrap";
+import { Card, CardImg, CardBody, CardFooter, Button } from "reactstrap";
+import { useRouter } from "next/router";
+import { deleteWork } from "../actions";
 
-class WorksList extends Component {
-  renderWorks(works) {
+const WorksList = (props) => {
+  const router = useRouter();
+  const { isAuthenticated, isSiteOwner } = props.auth;
+
+  const deleteWorkHandle = (id) => {
+    deleteWork(id)
+      .then(() => {
+        showAlert(`Проект успешно удалён!`, "danger");
+        router.push("/portfolio");
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const renderWorks = (works) => {
     return works.map((work, index) => (
       <div key={work._id} className="portfolio-item col-lg-4 col-md-12 mb-4">
         <Link href="/portfolios/[id]" as={`/portfolios/${work._id}`}>
@@ -36,14 +50,37 @@ class WorksList extends Component {
             </Card>
           </a>
         </Link>
+        {isAuthenticated && isSiteOwner && (
+          <div className="admin-buttons">
+            <Button
+              onClick={() => {
+                router.push(
+                  `/portfolios/[id]/edit`,
+                  `/portfolios/${work._id}/edit`
+                );
+              }}
+              className="btn btn-warning btn-sm mr-2"
+              role="button"
+            >
+              Редактировать
+            </Button>
+            <Button
+              onClick={() => {
+                deleteWorkHandle(work._id);
+              }}
+              className="btn btn-danger btn-sm mr-2"
+              role="button"
+            >
+              Удалить
+            </Button>
+          </div>
+        )}
       </div>
     ));
-  }
+  };
 
-  render() {
-    const { works } = this.props;
-    return <>{this.renderWorks(works)}</>;
-  }
-}
+  const { works } = props;
+  return <>{renderWorks(works)}</>;
+};
 
 export default WorksList;

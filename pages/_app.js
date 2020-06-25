@@ -10,6 +10,8 @@ import "../styles/main.scss";
 
 import auth0 from "../services/auth0";
 
+const namespace = "http://localhost:3000";
+
 function PortfolioApp({ Component, pageProps, auth }) {
   const [alert, setAlert] = useState({
     text: "Проект добавлен!",
@@ -56,7 +58,9 @@ PortfolioApp.getInitialProps = async ({ Component, ctx }) => {
     pageProps = await Component.getInitialProps(ctx);
   }
 
-  const auth = { user, isAuthenticated: !!user };
+  const isSiteOwner = user && user[`${namespace}/role`] === "siteOwner";
+
+  const auth = { user, isAuthenticated: !!user, isSiteOwner };
 
   return { pageProps, auth };
 };

@@ -12,13 +12,13 @@ import AlertContext from "../context/AlertContext";
 const Portfolio = (props) => {
   const { works = [], categories = [], images = [] } = props;
   const [filter, setFilter] = useState("Все");
-  const { isAuthenticated } = props.auth;
+  const { isAuthenticated, isSiteOwner } = props.auth;
 
   const router = useRouter();
 
   const { showAlert } = useContext(AlertContext);
 
-  const handleCreateWork = (newWork) => {
+  const createWorkHandle = (newWork) => {
     createWork(newWork)
       .then((works) => {
         //TODO: реализовать закрытие модалки
@@ -61,12 +61,12 @@ const Portfolio = (props) => {
         </div>
         <div className="portfolio-list col-12">
           <div className="row">
-            <WorksList works={filterWork(works) || []} />
+            <WorksList auth={props.auth} works={filterWork(works) || []} />
           </div>
           <hr />
-          {isAuthenticated && (
+          {isAuthenticated && isSiteOwner && (
             <ModalReact buttonLabel="Добавить проект" className="modalReact">
-              <CreateForm handleSaveForm={handleCreateWork} />
+              <CreateForm handleSaveForm={createWorkHandle} />
             </ModalReact>
           )}
         </div>

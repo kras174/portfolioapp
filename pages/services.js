@@ -1,3 +1,3 @@
-const Services = () => <h1>Hello Services Page</h1>;
+const Services = () => <h1>Наши услуги</h1>;
 
 export default Services;
