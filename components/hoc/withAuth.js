@@ -1,10 +1,8 @@
-const namespace = "http://localhost:3000/";
-
 export default function (Component, role) {
   return class withAuth extends React.Component {
     renderProtectedPage() {
       const { isAuthenticated, user } = this.props.auth;
-      const userRole = user && user[`${namespace}role`];
+      const userRole = user && user[`${process.env.NAMESPACE}/role`];
       let isAuthorized = false;
 
       if (role) {

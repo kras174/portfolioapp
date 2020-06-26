@@ -10,8 +10,6 @@ import "../styles/main.scss";
 
 import auth0 from "../services/auth0";
 
-const namespace = "http://localhost:3000";
-
 function PortfolioApp({ Component, pageProps, auth }) {
   const [alert, setAlert] = useState({
     text: "Проект добавлен!",
@@ -35,7 +33,27 @@ function PortfolioApp({ Component, pageProps, auth }) {
   return (
     <div className="main">
       <Head>
-        <title>Студия WEB-разработки</title>
+        <title>Антон Красильников - WEB-разработчик</title>
+        <meta
+          name="description"
+          content="Привет, меня зовут Антон Красильников и я WEB-разработчик"
+        />
+        <meta
+          name="keywords"
+          content="веб-разработка, портфолио, создание сайтов, разработка сайтов"
+        />
+        <meta
+          property="og:title"
+          content="Антон Красильников - программист, разработчик, путешественник"
+        />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:utl" content={`${process.env.BASE_URL}`} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Привет, меня зовут Антон Красильников и я WEB-разработчик"
+        />
+        <link rel="icon" type="image/ico" href="/static/favicon.ico" />
       </Head>
       <AlertContext.Provider value={{ showAlert, hideAlert, alert }}>
         <Header auth={auth} />
@@ -58,7 +76,8 @@ PortfolioApp.getInitialProps = async ({ Component, ctx }) => {
     pageProps = await Component.getInitialProps(ctx);
   }
 
-  const isSiteOwner = user && user[`${namespace}/role`] === "siteOwner";
+  const isSiteOwner =
+    user && user[`${process.env.NAMESPACE}/role`] === "siteOwner";
 
   const auth = { user, isAuthenticated: !!user, isSiteOwner };
 

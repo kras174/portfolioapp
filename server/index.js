@@ -59,13 +59,13 @@ app
       return handle(req, res);
     });
 
-    // server.use(function (err, req, res, next) {
-    //   if (err.name === "UnauthorizedError") {
-    //     res
-    //       .status(401)
-    //       .send({ title: "Unauthorized", detail: "Unauthorized Access" });
-    //   }
-    // });
+    server.use(function (err, req, res, next) {
+      if (err.name === "UnauthorizedError") {
+        res
+          .status(401)
+          .send({ title: "Unauthorized", detail: "Unauthorized Access" });
+      }
+    });
 
     const PORT = process.env.PORT || 3000;
 
