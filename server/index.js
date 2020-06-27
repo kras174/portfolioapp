@@ -40,7 +40,7 @@ const robotsOptions = {
 // ];
 
 mongoose
-  .connect(config.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(config.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Database Connected!"))
   .catch((err) => console.error(err));
 

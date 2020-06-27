@@ -1,4 +1,4 @@
 module.exports = {
-  DB_URL: process.env.DB_URL,
+  DB_URI: process.env.DB_URI,
   NAMESPACE: "https://portfoliokras.herokuapp.com",
 };
