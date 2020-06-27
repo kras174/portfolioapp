@@ -71,7 +71,7 @@ const Header = (props) => {
             <MyNavLink
               activeClassName="activeLink"
               route="/about"
-              title="О нас"
+              title="Обо мне"
             />
           </NavItem>
           <NavItem>

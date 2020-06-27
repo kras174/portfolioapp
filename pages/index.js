@@ -8,7 +8,7 @@ const Home = (props) => {
   return (
     <div className="home-page">
       <h1>{`Добро пожаловать ${user && user.name}`}</h1>
-      <CarouselReact items={images} />
+      {/* <CarouselReact items={images} /> */}
     </div>
   );
 };
