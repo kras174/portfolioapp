@@ -1,5 +1,6 @@
 const next = require("next");
 const express = require("express");
+const compression = require("compression");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
@@ -38,6 +39,7 @@ app
   .prepare()
   .then(() => {
     const server = express();
+    server.use(compression());
     server.use(bodyParser.json());
 
     server.use("/api/v1/portfolio", portfolioRoutes);
