@@ -10,7 +10,22 @@ import "../styles/main.scss";
 
 import auth0 from "../services/auth0";
 
-function PortfolioApp({ Component, pageProps, auth }) {
+const getUser = async () => {
+  // return process.browser
+  //   ? await auth0.clientAuth()
+  //   : await auth0.serverAuth(ctx.req);
+
+  return await auth0.clientAuth();
+};
+
+function PortfolioApp({ Component, pageProps }) {
+  const user = getUser();
+
+  const isSiteOwner =
+    user && user[`${process.env.NAMESPACE}/role`] === "siteOwner";
+
+  const auth = { user, isAuthenticated: !!user, isSiteOwner };
+
   const [alert, setAlert] = useState({
     text: "Проект добавлен!",
     type: "success",
@@ -66,22 +81,22 @@ function PortfolioApp({ Component, pageProps, auth }) {
   );
 }
 
-PortfolioApp.getInitialProps = async ({ Component, ctx }) => {
-  let pageProps = {};
-  const user = process.browser
-    ? await auth0.clientAuth()
-    : await auth0.serverAuth(ctx.req);
+// PortfolioApp.getInitialProps = async ({ Component, ctx }) => {
+//   let pageProps = {};
+//   const user = process.browser
+//     ? await auth0.clientAuth()
+//     : await auth0.serverAuth(ctx.req);
 
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx);
-  }
+//   if (Component.getInitialProps) {
+//     pageProps = await Component.getInitialProps(ctx);
+//   }
 
-  const isSiteOwner =
-    user && user[`${process.env.NAMESPACE}/role`] === "siteOwner";
+//   const isSiteOwner =
+//     user && user[`${process.env.NAMESPACE}/role`] === "siteOwner";
 
-  const auth = { user, isAuthenticated: !!user, isSiteOwner };
+//   const auth = { user, isAuthenticated: !!user, isSiteOwner };
 
-  return { pageProps, auth };
-};
+//   return { pageProps, auth };
+// };
 
 export default PortfolioApp;

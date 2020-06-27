@@ -11,7 +11,7 @@ const WorksList = (props) => {
   const deleteWorkHandle = (id) => {
     deleteWork(id)
       .then(() => {
-        showAlert(`Проект успешно удалён!`, "danger");
+        // showAlert(`Проект успешно удалён!`, "danger");
         router.push("/portfolio");
       })
       .catch((err) => console.error(err));

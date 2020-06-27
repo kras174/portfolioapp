@@ -15,8 +15,7 @@ const categoryData = [
 ];
 
 const setAuthHeader = (req) => {
-  // const token = req ? getCookieFromReq(req, "jwt") : Cookies.getJSON("jwt");
-  const token = Cookies.getJSON("jwt");
+  const token = req ? getCookieFromReq(req, "jwt") : Cookies.getJSON("jwt");
   if (token) {
     return {
       headers: { authorization: `Bearer ${token}` },

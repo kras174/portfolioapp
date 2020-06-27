@@ -1,5 +1,6 @@
 const next = require("next");
 const express = require("express");
+const path = require("path");
 const compression = require("compression");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -8,32 +9,40 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const authService = require("./services/auth");
+// const authService = require("./services/auth");
 
 const config = require("./config");
 
 const portfolioRoutes = require("./routes/portfolio");
 
-const secretData = [
-  {
-    title: "Secret Data 1",
-    description: "Spme secret thing",
+const robotsOptions = {
+  root: path.join(__dirname, "../public"),
+  headers: {
+    "Content-Type": "text/plain;charset=UTF-8",
   },
-  {
-    title: "Secret Data 2",
-    description: "Passwords!",
-  },
-];
-const ownerData = [
-  {
-    name: "owner",
-    secretKey: "1111111",
-  },
-];
+};
+
+// const secretData = [
+//   {
+//     title: "Secret Data 1",
+//     description: "Spme secret thing",
+//   },
+//   {
+//     title: "Secret Data 2",
+//     description: "Passwords!",
+//   },
+// ];
+// const ownerData = [
+//   {
+//     name: "owner",
+//     secretKey: "1111111",
+//   },
+// ];
 
 mongoose
   .connect(config.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(console.log("---------------Database connected!!"));
+  .then(() => console.log("Database Connected!"))
+  .catch((err) => console.error(err));
 
 app
   .prepare()
@@ -44,18 +53,22 @@ app
 
     server.use("/api/v1/portfolio", portfolioRoutes);
 
-    server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
-      return res.json(secretData);
+    server.get("/robots.txt", (req, res) => {
+      return res.status(200).sendFile("robots.txt", robotsOptions);
     });
 
-    server.get(
-      "/api/v1/owneronly",
-      authService.checkJWT,
-      authService.checkRole("siteOwner"),
-      (req, res) => {
-        return res.json(ownerData);
-      }
-    );
+    // server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
+    //   return res.json(secretData);
+    // });
+
+    // server.get(
+    //   "/api/v1/owneronly",
+    //   authService.checkJWT,
+    //   authService.checkRole("siteOwner"),
+    //   (req, res) => {
+    //     return res.json(ownerData);
+    //   }
+    // );
 
     server.get("*", (req, res) => {
       return handle(req, res);

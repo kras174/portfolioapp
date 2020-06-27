@@ -1,3 +1,3 @@
-const About = () => <h1>О нас</h1>;
+const About = () => <h1>Обо мне</h1>;
 
 export default About;

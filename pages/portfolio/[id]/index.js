@@ -31,13 +31,13 @@ const Work = (props) => {
       <span className="badge badge-pill badge-dark mb-4">
         {work.releaseYear}
       </span>
-      <div className="d-flex button-container">
+      {/* <div className="d-flex button-container">
         <div className="flex-grow-1">
           <button className="btn btn-outline-success mr-2" role="button">
             Демо
           </button>
         </div>
-      </div>
+      </div> */}
       {work.preview && (
         <>
           <hr className="my-4" />
