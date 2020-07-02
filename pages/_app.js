@@ -14,7 +14,6 @@ const getUser = async () => {
   // return process.browser
   //   ? await auth0.clientAuth()
   //   : await auth0.serverAuth(ctx.req);
-
   return await auth0.clientAuth();
 };
 
