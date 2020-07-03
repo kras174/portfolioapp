@@ -12,6 +12,8 @@ const categoryData = [
   { id: "c-2", name: "Wordpress" },
   { id: "c-3", name: "Bitrix" },
   { id: "c-4", name: "HTML" },
+  { id: "c-5", name: "REDUX" },
+  { id: "c-6", name: "NEXTJS" },
 ];
 
 const setAuthHeader = (req) => {

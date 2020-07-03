@@ -50,7 +50,7 @@ const Portfolio = (props) => {
       <h1>Портфолио</h1>
       <div className="row">
         <div className="portfolio-filter col-12 my-3">
-          <ButtonGroup className="d-flex flex-wrap">
+          <div className="multi-button">
             {categories.map((c) => (
               <Button
                 key={c.id}
@@ -60,7 +60,7 @@ const Portfolio = (props) => {
                 {c.name}
               </Button>
             ))}
-          </ButtonGroup>
+          </div>
           <hr />
         </div>
         <div className="portfolio-list col-12">
