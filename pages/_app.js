@@ -10,20 +10,20 @@ import "../styles/main.scss";
 
 import auth0 from "../services/auth0";
 
-const getUser = async () => {
-  // return process.browser
-  //   ? await auth0.clientAuth()
-  //   : await auth0.serverAuth(ctx.req);
-  return await auth0.clientAuth();
-};
+// const getUser = async () => {
+// return process.browser
+//   ? await auth0.clientAuth()
+//   : await auth0.serverAuth(ctx.req);
+//   return await auth0.clientAuth();
+// };
 
-function PortfolioApp({ Component, pageProps }) {
-  const user = getUser();
+function PortfolioApp({ Component, pageProps, auth }) {
+  // const user = getUser();
 
-  const isSiteOwner =
-    user && user[`${process.env.NAMESPACE}/role`] === "siteOwner";
+  // const isSiteOwner =
+  //   user && user[`${process.env.NAMESPACE}/role`] === "siteOwner";
 
-  const auth = { user, isAuthenticated: !!user, isSiteOwner };
+  // const auth = { user, isAuthenticated: !!user, isSiteOwner };
 
   const [alert, setAlert] = useState({
     text: "Проект добавлен!",
@@ -67,7 +67,7 @@ function PortfolioApp({ Component, pageProps }) {
           property="og:description"
           content="Привет, меня зовут Антон Красильников и я WEB-разработчик"
         />
-        <link rel="icon" type="image/ico" href="/static/favicon.ico" />
+        <link rel="icon" type="image/ico" href="/favicon.ico" />
       </Head>
       <AlertContext.Provider value={{ showAlert, hideAlert, alert }}>
         <Header auth={auth} />
@@ -80,22 +80,22 @@ function PortfolioApp({ Component, pageProps }) {
   );
 }
 
-// PortfolioApp.getInitialProps = async ({ Component, ctx }) => {
-//   let pageProps = {};
-//   const user = process.browser
-//     ? await auth0.clientAuth()
-//     : await auth0.serverAuth(ctx.req);
+PortfolioApp.getInitialProps = async ({ Component, ctx }) => {
+  let pageProps = {};
+  const user = process.browser
+    ? await auth0.clientAuth()
+    : await auth0.serverAuth(ctx.req);
 
-//   if (Component.getInitialProps) {
-//     pageProps = await Component.getInitialProps(ctx);
-//   }
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
 
-//   const isSiteOwner =
-//     user && user[`${process.env.NAMESPACE}/role`] === "siteOwner";
+  const isSiteOwner =
+    user && user[`${process.env.NAMESPACE}/role`] === "siteOwner";
 
-//   const auth = { user, isAuthenticated: !!user, isSiteOwner };
+  const auth = { user, isAuthenticated: !!user, isSiteOwner };
 
-//   return { pageProps, auth };
-// };
+  return { pageProps, auth };
+};
 
 export default PortfolioApp;
