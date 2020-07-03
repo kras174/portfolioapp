@@ -8,6 +8,7 @@ const CreateForm = (props) => {
     releaseYear: "",
     image: "",
     preview: "",
+    demoLink: "",
   };
   const fromData = props.initialData ? { ...props.initialData } : defaultData;
 
@@ -116,6 +117,18 @@ const CreateForm = (props) => {
           type="text"
           className="form-control"
           id="cover"
+          placeholder="http://......"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="cover">Демо URL</label>
+        <input
+          onChange={handleChange}
+          value={form.demoLink}
+          name="demoLink"
+          type="text"
+          className="form-control"
+          id="demoLink"
           placeholder="http://......"
         />
       </div>

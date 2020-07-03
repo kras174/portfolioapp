@@ -20,35 +20,41 @@ const Work = (props) => {
       <p className="lead">{work.description}</p>
       <hr className="my-4" />
       <p>
-        {work.stack
-          ? work.stack.map((item, index) => (
-              <span key={index} className="badge badge-info">
-                {item}
-              </span>
-            ))
-          : null}
+        {work.stack &&
+          work.stack.map((item, index) => (
+            <span key={index} className="badge badge-info">
+              {item}
+            </span>
+          ))}
       </p>
       <span className="badge badge-pill badge-dark mb-4">
         {work.releaseYear}
       </span>
-      {/* <div className="d-flex button-container">
-        <div className="flex-grow-1">
-          <button className="btn btn-outline-success mr-2" role="button">
-            Демо
-          </button>
+      {work.demoLink && (
+        <div className="d-flex button-container">
+          <div className="flex-grow-1">
+            <button
+              href=""
+              className="btn btn-outline-success mr-2"
+              role="button"
+            >
+              Демо
+            </button>
+          </div>
         </div>
-      </div> */}
+      )}
+
       {work.preview && (
-        <>
+        <div className="preview-block">
           <hr className="my-4" />
           <div className="preview-imgs">
             <img
               src={work.preview}
-              alt={work.title}
+              alt={work.preview}
               className="img img-fluid mx-auto"
             />
           </div>
-        </>
+        </div>
       )}
     </div>
   );

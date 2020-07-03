@@ -53,7 +53,7 @@ const Header = (props) => {
   const { isAuthenticated, user } = props.auth;
   return (
     <Navbar color="light" light expand="md" className="px-5">
-      <NavbarBrand href="/">Студия WEB-разработки</NavbarBrand>
+      <NavbarBrand href="/">WEB-developer</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
@@ -74,7 +74,7 @@ const Header = (props) => {
               title="Обо мне"
             />
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <MyNavLink
               activeClassName="activeLink"
               route="/services"
@@ -87,7 +87,7 @@ const Header = (props) => {
               route="/contacts"
               title="Контакты"
             />
-          </NavItem>
+          </NavItem> */}
           {!isAuthenticated && (
             <NavItem>
               <Login />

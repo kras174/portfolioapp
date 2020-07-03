@@ -23,13 +23,15 @@ const WorksList = (props) => {
         <Link href="/portfolio/[id]" as={`/portfolio/${work._id}`}>
           <a>
             <Card className="h-100">
-              <CardImg
-                className="img img-fluid mx-auto grayscale"
-                top
-                width="100%"
-                src={work.image}
-                alt="Card image cap"
-              />
+              {work.image && (
+                <CardImg
+                  className="img img-fluid mx-auto grayscale"
+                  top
+                  width="100%"
+                  src={work.image}
+                  alt="Card image cap"
+                />
+              )}
 
               <CardBody>
                 <h2>{work.title}</h2>

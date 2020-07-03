@@ -8,6 +8,7 @@ const portfolioSchema = new Schema({
   stack: Array,
   image: String,
   preview: Array,
+  demoLink: String,
 });
 
 module.exports = mongoose.model("Porfolio", portfolioSchema);
