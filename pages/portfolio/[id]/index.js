@@ -33,13 +33,11 @@ const Work = (props) => {
       {work.demoLink && (
         <div className="d-flex button-container">
           <div className="flex-grow-1">
-            <button
-              href=""
-              className="btn btn-outline-success mr-2"
-              role="button"
-            >
-              Демо
-            </button>
+            <a href={work.demoLink} target="_blank">
+              <button className="btn btn-outline-success mr-2" role="button">
+                Демо
+              </button>
+            </a>
           </div>
         </div>
       )}
@@ -48,11 +46,14 @@ const Work = (props) => {
         <div className="preview-block">
           <hr className="my-4" />
           <div className="preview-imgs">
-            <img
-              src={work.preview}
-              alt={work.preview}
-              className="img img-fluid mx-auto"
-            />
+            {work.preview.map((prev, index) => (
+              <img
+                key={index}
+                src={prev}
+                alt={index}
+                className="img img-fluid mx-auto"
+              />
+            ))}
           </div>
         </div>
       )}

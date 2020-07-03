@@ -44,6 +44,7 @@ export const getWorkById = async (id) => {
 
 export const createWork = async (newWork) => {
   newWork.id = Math.random().toString(36).substr(2, 7);
+  newWork.preview = newWork.preview.split(",");
   return await axiosInstance
     .post(`/portfolio`, newWork, setAuthHeader())
     .then((res) => res.data);
