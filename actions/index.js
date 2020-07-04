@@ -36,6 +36,18 @@ export const getCategory = () => {
   });
 };
 
+export async function getAllWorkIds() {
+  const works = await axiosInstance.get(`/portfolio`).then((res) => res.data);
+
+  return works.map((work) => {
+    return {
+      params: {
+        id: work._id,
+      },
+    };
+  });
+}
+
 export const getWorks = async () => {
   return await axiosInstance.get(`/portfolio`).then((res) => res.data);
 };
@@ -46,8 +58,9 @@ export const getWorkById = async (id) => {
 
 export const createWork = async (newWork) => {
   newWork.id = Math.random().toString(36).substr(2, 7);
+  console.log(newWork.preview);
   if (newWork.preview) {
-    const previewArray = newWork.preview.split(",");
+    const previewArray = newWork.preview.trim().split(",");
     newWork.preview = previewArray;
   }
   return await axiosInstance
@@ -56,8 +69,9 @@ export const createWork = async (newWork) => {
 };
 
 export const updateWork = async (work) => {
+  console.log(work.preview);
   if (work.preview) {
-    const previewArray = work.preview.split(",");
+    const previewArray = work.preview.trim().split(",");
     work.preview = previewArray;
   }
   return await axiosInstance

@@ -38,14 +38,14 @@ const WorksList = (props) => {
                 <p>{work.description}</p>
                 {work.stack
                   ? work.stack.map((item, index) => (
-                      <span key={index} className="badge badge-info">
+                      <span key={index} className="badge badge-info mr-1">
                         {item}
                       </span>
                     ))
                   : null}
               </CardBody>
               <CardFooter>
-                <span className="badge badge-pill badge-dark">
+                <span className="badge badge-info badge-dark">
                   {work.releaseYear}
                 </span>
               </CardFooter>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CreateForm from "../../../components/CreateForm";
-import { getWorkById, updateWork } from "../../../actions";
+import { getWorkById, updateWork, getCategory } from "../../../actions";
 import Router from "next/router";
 import withAuth from "../../../components/hoc/withAuth";
 
@@ -40,3 +40,4 @@ export async function getServerSideProps({ query }) {
 }
 
 export default withAuth(EditWork, "siteOwner");
+// export default EditWork;

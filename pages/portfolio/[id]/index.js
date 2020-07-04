@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { getWorkById } from "../../../actions";
+import { getWorkById, getWorks, getAllWorkIds } from "../../../actions";
 
 const Work = (props) => {
   const router = useRouter();
@@ -22,12 +22,12 @@ const Work = (props) => {
       <p>
         {work.stack &&
           work.stack.map((item, index) => (
-            <span key={index} className="badge badge-info">
+            <span key={index} className="badge badge-info mr-1">
               {item}
             </span>
           ))}
       </p>
-      <span className="badge badge-pill badge-dark mb-4">
+      <span className="badge badge-info badge-dark mb-4">
         {work.releaseYear}
       </span>
       {work.demoLink && (
@@ -47,15 +47,12 @@ const Work = (props) => {
           <hr className="my-4" />
           <div className="preview-imgs">
             {work.preview.map((prev, index) => (
-              <>
-                <img
-                  key={index}
-                  src={prev}
-                  alt={index}
-                  className="img img-fluid mx-auto"
-                />
-                <br />
-              </>
+              <img
+                key={index}
+                src={prev}
+                alt={index}
+                className="img img-fluid mx-auto my-2"
+              />
             ))}
           </div>
         </div>
@@ -64,12 +61,30 @@ const Work = (props) => {
   );
 };
 
-export async function getServerSideProps({ query }) {
-  const { id } = query;
-  const work = await getWorkById(id);
+export async function getStaticPaths() {
+  debugger;
+  const paths = await getAllWorkIds();
   return {
-    props: { work },
+    paths,
+    fallback: false,
   };
 }
+
+export async function getStaticProps({ params }) {
+  const work = await getWorkById(params.id);
+  return {
+    props: {
+      work,
+    },
+  };
+}
+
+// export async function getServerSideProps({ params }) {
+//   const { id } = params;
+//   const work = await getWorkById(id);
+//   return {
+//     props: { work },
+//   };
+// }
 
 export default Work;
