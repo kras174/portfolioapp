@@ -53,7 +53,7 @@ const Header = (props) => {
   const { isAuthenticated, user } = props.auth;
   return (
     <Navbar color="light" light expand="md" className="px-md-5">
-      <NavbarBrand href="/">WEB-developer</NavbarBrand>
+      <NavbarBrand href="/">Антон Красильников</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
