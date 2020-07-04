@@ -67,21 +67,21 @@ const Header = (props) => {
               title="Портфолио"
             />
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <MyNavLink
               activeClassName="activeLink"
               route="/about"
               title="Обо мне"
             />
-          </NavItem>
-          {/* <NavItem>
+          </NavItem> */}
+          <NavItem>
             <MyNavLink
               activeClassName="activeLink"
-              route="/services"
-              title="Услуги"
+              route="/cv"
+              title="Резюме"
             />
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <MyNavLink
               activeClassName="activeLink"
               route="/contacts"
