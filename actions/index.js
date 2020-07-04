@@ -6,14 +6,16 @@ const axiosInstance = axios.create({
   timeout: 3000,
 });
 
+//TODO: создать API для подгрузки категорий из базы данных
+//TODO: создать возможность добавления новых категорий
 const categoryData = [
   { id: "c-0", name: "Все" },
   { id: "c-1", name: "React" },
   { id: "c-2", name: "Wordpress" },
   { id: "c-3", name: "Bitrix" },
   { id: "c-4", name: "HTML" },
-  { id: "c-5", name: "REDUX" },
-  { id: "c-6", name: "NEXTJS" },
+  { id: "c-5", name: "Redux" },
+  { id: "c-6", name: "NextJS" },
 ];
 
 const setAuthHeader = (req) => {
@@ -44,13 +46,20 @@ export const getWorkById = async (id) => {
 
 export const createWork = async (newWork) => {
   newWork.id = Math.random().toString(36).substr(2, 7);
-  newWork.preview = newWork.preview.split(",");
+  if (newWork.preview) {
+    const previewArray = newWork.preview.split(",");
+    newWork.preview = previewArray;
+  }
   return await axiosInstance
     .post(`/portfolio`, newWork, setAuthHeader())
     .then((res) => res.data);
 };
 
 export const updateWork = async (work) => {
+  if (work.preview) {
+    const previewArray = work.preview.split(",");
+    work.preview = previewArray;
+  }
   return await axiosInstance
     .patch(`/portfolio/${work._id}`, work, setAuthHeader())
     .then((res) => res.data);

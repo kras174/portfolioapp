@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 const CreateForm = (props) => {
+  const { categories } = props;
   const defaultData = {
     title: "",
     description: "",
@@ -11,7 +12,6 @@ const CreateForm = (props) => {
     demoLink: "",
   };
   const fromData = props.initialData ? { ...props.initialData } : defaultData;
-
   const [form, setForm] = useState(fromData);
 
   const router = useRouter();
@@ -105,7 +105,7 @@ const CreateForm = (props) => {
           type="text"
           className="form-control"
           id="image"
-          placeholder="http://....."
+          placeholder="http://..."
         />
       </div>
       <div className="form-group">
@@ -117,7 +117,7 @@ const CreateForm = (props) => {
           type="text"
           className="form-control"
           id="cover"
-          placeholder="http://......"
+          placeholder="http://...,http://...,http://..."
         />
       </div>
       <div className="form-group">
@@ -129,21 +129,20 @@ const CreateForm = (props) => {
           type="text"
           className="form-control"
           id="demoLink"
-          placeholder="http://......"
+          placeholder="http://..."
         />
       </div>
       <div className="form-group">
-        <label htmlFor="genre">Стэк</label>
+        <label htmlFor="stack">Стэк</label>
         <select
           onChange={handleStackChange}
           multiple
           className="form-control"
-          id="genre"
+          id="stack"
         >
-          <option>React</option>
-          <option>Wordpress</option>
-          <option>Bitrix</option>
-          <option>HTML</option>
+          {categories.map((cat) => (
+            <option key={cat.id}>{cat.name}</option>
+          ))}
         </select>
       </div>
       <button

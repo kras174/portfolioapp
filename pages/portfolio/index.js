@@ -1,6 +1,6 @@
 import { getWorks, getCategory, createWork } from "../../actions";
 import React, { useState, useContext } from "react";
-import { ButtonGroup, Button } from "reactstrap";
+import { Button } from "reactstrap";
 import { useRouter } from "next/router";
 
 import WorksList from "../../components/WorksList";
@@ -46,41 +46,42 @@ const Portfolio = (props) => {
   };
 
   return (
-    <div className="portfolio-page my-5 mx-5">
+    <div className="portfolio-page mx-sm-3 mx-md-5 my-5">
       <h1>Портфолио</h1>
-      <div className="row">
-        <div className="portfolio-filter col-12 my-3">
-          <div className="multi-button">
-            {categories.map((c) => (
-              <Button
-                key={c.id}
-                className={`${filter === c.name ? "active" : ""}`}
-                onClick={() => changeCategory(c.name)}
-              >
-                {c.name}
-              </Button>
-            ))}
-          </div>
-          <hr />
+      <div className="portfolio-filter col-12 my-3">
+        <div className="multi-button">
+          {categories.map((c) => (
+            <Button
+              key={c.id}
+              className={`${filter === c.name ? "active" : ""}`}
+              onClick={() => changeCategory(c.name)}
+            >
+              {c.name}
+            </Button>
+          ))}
         </div>
-        <div className="portfolio-list col-12">
-          <div className="row">
-            <WorksList auth={props.auth} works={filterWork(works) || []} />
-          </div>
-          {isAuthenticated && isSiteOwner && (
-            <>
-              <hr />
-              <ModalReact
-                isOpen={isOpen}
-                toggle={toggleHandle}
-                buttonLabel="Добавить проект"
-                className="modalReact"
-              >
-                <CreateForm handleSaveForm={createWorkHandle} />
-              </ModalReact>
-            </>
-          )}
+        <hr />
+      </div>
+      <div className="portfolio-list col-12">
+        <div className="row">
+          <WorksList auth={props.auth} works={filterWork(works) || []} />
         </div>
+        {isAuthenticated && isSiteOwner && (
+          <>
+            <hr />
+            <ModalReact
+              isOpen={isOpen}
+              toggle={toggleHandle}
+              buttonLabel="Добавить проект"
+              className="modalReact"
+            >
+              <CreateForm
+                categories={categories}
+                handleSaveForm={createWorkHandle}
+              />
+            </ModalReact>
+          </>
+        )}
       </div>
     </div>
   );

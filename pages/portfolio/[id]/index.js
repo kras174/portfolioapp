@@ -8,7 +8,7 @@ const Work = (props) => {
   const goBack = () => router.push("/portfolio");
 
   return (
-    <div className="jumbotron mx-5 my-5">
+    <div className="jumbotron mx-md-5 my-md-5 my-0">
       <button
         className="btn btn-outline-primary btn-sm mb-3"
         onClick={goBack}
