@@ -53,6 +53,7 @@ const Work = (props) => {
                 alt={index}
                 className="img img-fluid mx-auto"
               />
+              <br />
             ))}
           </div>
         </div>

@@ -140,9 +140,10 @@ const CreateForm = (props) => {
           className="form-control"
           id="stack"
         >
-          {categories.map((cat) => (
-            <option key={cat.id}>{cat.name}</option>
-          ))}
+          {categories.map(
+            (cat, index) =>
+              index !== 0 && <option key={cat.id}>{cat.name}</option>
+          )}
         </select>
       </div>
       <button

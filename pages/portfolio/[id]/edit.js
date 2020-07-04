@@ -14,11 +14,12 @@ class EditWork extends Component {
   };
 
   render() {
-    const { work } = this.props;
+    const { work, categories } = this.props;
     return (
       <div className="my-5 mx-5">
         <h1>Редактор проекта</h1>
         <CreateForm
+          categories={categories}
           initialData={work}
           handleSaveForm={this.handleUpdateWork}
           submitButtonText="Обновить"
@@ -32,8 +33,9 @@ class EditWork extends Component {
 export async function getServerSideProps({ query }) {
   const { id } = query;
   const work = await getWorkById(id);
+  const categories = await getCategory();
   return {
-    props: { work },
+    props: { work, categories },
   };
 }
 
