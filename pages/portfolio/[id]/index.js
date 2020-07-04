@@ -61,30 +61,29 @@ const Work = (props) => {
   );
 };
 
-export async function getStaticPaths() {
-  debugger;
-  const paths = await getAllWorkIds();
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const work = await getWorkById(params.id);
-  return {
-    props: {
-      work,
-    },
-  };
-}
-
-// export async function getServerSideProps({ params }) {
-//   const { id } = params;
-//   const work = await getWorkById(id);
+// export async function getStaticPaths() {
+//   debugger;
+//   const paths = await getAllWorkIds();
 //   return {
-//     props: { work },
+//     paths,
+//     fallback: false,
 //   };
 // }
+
+// export async function getStaticProps({ params }) {
+//   const work = await getWorkById(params.id);
+//   return {
+//     props: {
+//       work,
+//     },
+//   };
+// }
+
+export async function getServerSideProps({ params }) {
+  const work = await getWorkById(params.id);
+  return {
+    props: { work },
+  };
+}
 
 export default Work;
