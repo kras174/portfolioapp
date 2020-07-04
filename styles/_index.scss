@@ -8,4 +8,16 @@
     display: block;
     color: #000;
   }
+  .image-container {
+    text-align: center;
+    img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+    }
+  }
+  .text-container {
+    p {
+    }
+  }
 }

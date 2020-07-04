@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { getWorkById, getWorks, getAllWorkIds } from "../../../actions";
+import { getWorkById } from "../../../actions";
 
 const Work = (props) => {
   const router = useRouter();
@@ -60,24 +60,6 @@ const Work = (props) => {
     </div>
   );
 };
-
-// export async function getStaticPaths() {
-//   debugger;
-//   const paths = await getAllWorkIds();
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-
-// export async function getStaticProps({ params }) {
-//   const work = await getWorkById(params.id);
-//   return {
-//     props: {
-//       work,
-//     },
-//   };
-// }
 
 export async function getServerSideProps({ params }) {
   const work = await getWorkById(params.id);
