@@ -66,22 +66,22 @@ const Portfolio = (props) => {
         <div className="row">
           <WorksList auth={props.auth} works={filterWork(works) || []} />
         </div>
-        {/* {isAuthenticated && isSiteOwner && ( */}
-        <>
-          <hr />
-          <ModalReact
-            isOpen={isOpen}
-            toggle={toggleHandle}
-            buttonLabel="Добавить проект"
-            className="modalReact"
-          >
-            <CreateForm
-              categories={categories}
-              handleSaveForm={createWorkHandle}
-            />
-          </ModalReact>
-        </>
-        {/* )} */}
+        {isAuthenticated && isSiteOwner && (
+          <>
+            <hr />
+            <ModalReact
+              isOpen={isOpen}
+              toggle={toggleHandle}
+              buttonLabel="Добавить проект"
+              className="modalReact"
+            >
+              <CreateForm
+                categories={categories}
+                handleSaveForm={createWorkHandle}
+              />
+            </ModalReact>
+          </>
+        )}
       </div>
     </div>
   );

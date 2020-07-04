@@ -47,13 +47,15 @@ const Work = (props) => {
           <hr className="my-4" />
           <div className="preview-imgs">
             {work.preview.map((prev, index) => (
-              <img
-                key={index}
-                src={prev}
-                alt={index}
-                className="img img-fluid mx-auto"
-              />
-              <br />
+              <>
+                <img
+                  key={index}
+                  src={prev}
+                  alt={index}
+                  className="img img-fluid mx-auto"
+                />
+                <br />
+              </>
             ))}
           </div>
         </div>
