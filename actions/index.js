@@ -10,12 +10,13 @@ const axiosInstance = axios.create({
 //TODO: создать возможность добавления новых категорий
 const categoryData = [
   { id: "c-0", name: "Все" },
-  { id: "c-1", name: "React" },
   { id: "c-2", name: "Wordpress" },
   { id: "c-3", name: "Bitrix" },
   { id: "c-4", name: "HTML" },
+  { id: "c-1", name: "React" },
   { id: "c-5", name: "Redux" },
   { id: "c-6", name: "NextJS" },
+  { id: "c-7", name: "VUE" },
 ];
 
 const setAuthHeader = (req) => {
