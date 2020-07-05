@@ -52,8 +52,14 @@ const Header = (props) => {
   const toggle = () => setIsOpen(!isOpen);
   const { isAuthenticated, user } = props.auth;
   return (
-    <Navbar color="light" light expand="md" className="px-md-5">
-      <NavbarBrand href="/">Антон Красильников</NavbarBrand>
+    <Navbar color="dark" dark expand="md" className="px-md-5">
+      <NavbarBrand href="/">
+        <div className="logo">
+          <b>
+            Ан<span>т</span>он Красильник<span>ов</span>
+          </b>
+        </div>
+      </NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>

@@ -1,10 +1,16 @@
 // import CarouselReact from "../components/Carousel";
 // import { getWorks, getCategory } from "../actions";
 import { Container, Row, Col } from "reactstrap";
+import Typed from "react-typed";
 
 const Home = (props) => {
   const { user = "" } = props.auth;
   // const { images = [] } = props;
+  const options = {
+    strings: ["React", "Redux", "Next JS"],
+    typeSpeed: 40,
+  };
+  const typed = new Typed(".typed", options);
 
   return (
     <div className="home-page">
@@ -20,18 +26,29 @@ const Home = (props) => {
             )}
           </div>
           {/* <CarouselReact items={images} /> */}
-          <div className="image-container col-sm-12 col-md-4 mb-5">
+          <div className="image-container col-sm-12 col-md-5 mb-5">
             <img src="/images/ava.jpg" alt="avatar" />
           </div>
-          <div className="text-container col-sm-12 col-md-8 mb-5">
-            <p>Меня зовут Антон Красильников, и я ВЕБ-разработчик.</p>
+          <div className="text-container col-sm-12 col-md-7 mb-5">
+            <p>
+              Меня зовут <strong>Антон Красильников</strong>, и я
+              ВЕБ-разработчик.
+            </p>
             <p>
               Прекрасно знаю что такое HTML, CSS, JavaScript, JQuery, и какую
-              красоту с помощью этого всего можно сделать =){" "}
+              красоту с помощью этого всего можно сделать =)
             </p>
             <p>
               Специализируюсь на разработке ВЕБ-приложений с использованием
-              таких фреймворков как React, Redux, Next JS.
+              таких фреймворков как{" "}
+              <strong>
+                <Typed
+                  strings={["React.", "Redux.", "Next JS."]}
+                  typeSpeed={40}
+                  backSpeed={50}
+                  loop
+                />
+              </strong>
             </p>
           </div>
         </Row>

@@ -8,7 +8,14 @@
 .portfolio-filter {
   text-align: center;
 }
-
+.portfolio-item {
+  position: relative;
+  .admin-buttons {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+  }
+}
 :root {
   --border-size: 0.125rem;
   --duration: 250ms;
