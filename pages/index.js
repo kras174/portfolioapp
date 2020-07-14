@@ -50,6 +50,11 @@ const Home = (props) => {
                 />
               </strong>
             </p>
+            <strong>
+              <a href="https://github.com/kras174" target="_blank">
+                Мой GIT реппозиторий
+              </a>
+            </strong>
           </div>
         </Row>
       </Container>
