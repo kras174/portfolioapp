@@ -1,16 +1,13 @@
-// import CarouselReact from "../components/Carousel";
-// import { getWorks, getCategory } from "../actions";
-import { Container, Row, Col } from "reactstrap";
-import Typed from "react-typed";
+import { Container, Row, Col } from 'reactstrap'
+import Typed from 'react-typed'
 
 const Home = (props) => {
-  const { user = "" } = props.auth;
-  // const { images = [] } = props;
+  const { user = '' } = props.auth
   const options = {
-    strings: ["React", "Redux", "Next JS"],
+    strings: ['React', 'Redux', 'Next JS'],
     typeSpeed: 40,
-  };
-  const typed = new Typed(".typed", options);
+  }
+  const typed = new Typed('.typed', options)
 
   return (
     <div className="home-page">
@@ -40,10 +37,10 @@ const Home = (props) => {
             </p>
             <p>
               Специализируюсь на разработке ВЕБ-приложений с использованием
-              таких фреймворков как{" "}
+              таких фреймворков как{' '}
               <strong>
                 <Typed
-                  strings={["React.", "Redux.", "Next JS."]}
+                  strings={['React.', 'Redux.', 'Next JS.']}
                   typeSpeed={40}
                   backSpeed={50}
                   loop
@@ -59,15 +56,7 @@ const Home = (props) => {
         </Row>
       </Container>
     </div>
-  );
-};
+  )
+}
 
-// export async function getServerSideProps() {
-//   const works = await getWorks();
-//   const images = works.map((w) => w.image).filter((w) => w);
-//   return {
-//     props: { images },
-//   };
-// }
-
-export default Home;
+export default Home
