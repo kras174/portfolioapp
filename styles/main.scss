@@ -1,15 +1,16 @@
 //PAGES
-@import "./index.scss";
-@import "./portfolio.scss";
+@import './index.scss';
+@import './portfolio.scss';
+@import './id.scss';
 
 //COMPONENTS
-@import "./header.scss";
-@import "./carousel.scss";
-@import "./workList.scss";
+@import './header.scss';
+@import './carousel.scss';
+@import './workList.scss';
 
 html,
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   padding: 0;
   margin: 0;
 }
