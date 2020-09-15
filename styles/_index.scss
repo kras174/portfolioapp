@@ -4,6 +4,7 @@
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
+
   .title-container {
     text-align: center;
     h1 {
@@ -15,20 +16,28 @@
       color: #a1a1a1;
     }
   }
+
   .image-container {
     text-align: center;
     img {
-      // width: 280px;
-      // height: 280px;
+      max-width: 280px;
+      max-height: 280px;
       border-radius: 20%;
     }
   }
+
   .text-container {
     p {
       font-size: 22px;
     }
     a {
       margin-right: 5px;
+    }
+  }
+
+  .social-container {
+    a img {
+      max-width: 40px;
     }
   }
 }

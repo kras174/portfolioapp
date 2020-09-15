@@ -3,11 +3,6 @@ import Typed from "react-typed";
 
 const Home = (props) => {
   const { user = "" } = props.auth;
-  const options = {
-    strings: ["React", "Redux", "Next JS"],
-    typeSpeed: 40,
-  };
-  const typed = new Typed(".typed", options);
 
   return (
     <div className="home-page">
@@ -38,7 +33,7 @@ const Home = (props) => {
               Специализируюсь на разработке ВЕБ-приложений с использованием таких фреймворков как{" "}
               <strong>
                 <Typed
-                  strings={["React.", "Redux.", "Next JS."]}
+                  strings={["React.", "Redux.", "Next JS.", "MobX.", "TypeScript."]}
                   typeSpeed={40}
                   backSpeed={50}
                   loop
