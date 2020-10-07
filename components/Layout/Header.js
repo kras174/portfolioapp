@@ -56,7 +56,7 @@ const Header = (props) => {
       <NavbarBrand href="/">
         <div className="logo">
           <b>
-            Ан<span>т</span>он Красильник<span>ов</span>
+            We<span>b</span> De<span>v</span>elopme<span>n</span>t
           </b>
         </div>
       </NavbarBrand>
