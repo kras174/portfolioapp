@@ -23,7 +23,7 @@ const Home = (props) => {
           </div>
           <div className="text-container col-sm-12 col-md-7 mb-5">
             <p>
-              Меня зовут <strong>Антон Красильников</strong>, и я ВЕБ-разработчик.
+              Меня зовут <strong>Антон</strong>, и я ВЕБ-разработчик.
             </p>
             <p>
               Прекрасно знаю что такое HTML, CSS, JavaScript, JQuery, и какую красоту с помощью

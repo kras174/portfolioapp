@@ -47,7 +47,7 @@ function PortfolioApp({ Component, pageProps, auth }) {
   return (
     <div className="main">
       <Head>
-        <title>Антон Красильников - WEB-разработчик</title>
+        <title>Антон - WEB-разработчик</title>
         <meta
           name="description"
           content="Привет, меня зовут Антон Красильников и я WEB-разработчик"

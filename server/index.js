@@ -22,23 +22,6 @@ const robotsOptions = {
   },
 };
 
-// const secretData = [
-//   {
-//     title: "Secret Data 1",
-//     description: "Spme secret thing",
-//   },
-//   {
-//     title: "Secret Data 2",
-//     description: "Passwords!",
-//   },
-// ];
-// const ownerData = [
-//   {
-//     name: "owner",
-//     secretKey: "1111111",
-//   },
-// ];
-
 mongoose
   .connect(config.DB_URI, {
     useNewUrlParser: true,
