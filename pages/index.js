@@ -33,7 +33,7 @@ const Home = (props) => {
               Специализируюсь на разработке ВЕБ-приложений с использованием таких фреймворков как{" "}
               <strong>
                 <Typed
-                  strings={["React.", "Redux.", "Next JS.", "MobX.", "TypeScript."]}
+                  strings={["React.", "Redux.", "Next JS.", "MobX.", "Vue", "VueX", "TypeScript", "Ку-ку", "Здесь может быть ваша реклама =))"]}
                   typeSpeed={40}
                   backSpeed={50}
                   loop
