@@ -19,7 +19,7 @@ const Home = (props) => {
           </div>
           {/* <CarouselReact items={images} /> */}
           <div className="image-container col-sm-12 col-md-5 mb-5">
-            <img src="/images/ava.jpg" alt="avatar" />
+            <div className="image"/>
           </div>
           <div className="text-container col-sm-12 col-md-7 mb-5">
             <p>
