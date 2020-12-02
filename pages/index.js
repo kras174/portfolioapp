@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import Typed from "react-typed";
 
 const Home = (props) => {
@@ -17,7 +17,6 @@ const Home = (props) => {
               </small>
             )}
           </div>
-          {/* <CarouselReact items={images} /> */}
           <div className="image-container col-sm-12 col-md-5 mb-5">
             <div className="image"/>
           </div>

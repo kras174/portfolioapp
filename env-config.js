@@ -1,5 +1,4 @@
-const prod = process.env.NODE_ENV === "production";
-console.log('---------------------', prod);
+const prod = process.env.NODE_ENV.trim() === "production";
 
 module.exports = {
   "process.env.BASE_URL": prod
