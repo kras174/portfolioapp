@@ -5,7 +5,7 @@ const compression = require("compression");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const dev = process.env.NODE_ENV !== "production";
+const dev = process.env.NODE_ENV.trim() !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
