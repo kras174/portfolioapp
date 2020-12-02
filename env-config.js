@@ -1,4 +1,5 @@
 const prod = process.env.NODE_ENV === "production";
+console.log('---------------------', prod);
 
 module.exports = {
   "process.env.BASE_URL": prod

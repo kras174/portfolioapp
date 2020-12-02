@@ -50,7 +50,7 @@ function PortfolioApp({ Component, pageProps, auth }) {
         <title>Антон - WEB-разработчик</title>
         <meta
           name="description"
-          content="Привет, меня зовут Антон Красильников и я WEB-разработчик"
+          content="Привет, меня зовут Антон и я WEB-разработчик"
         />
         <meta
           name="keywords"
@@ -58,14 +58,14 @@ function PortfolioApp({ Component, pageProps, auth }) {
         />
         <meta
           property="og:title"
-          content="Антон Красильников - программист, разработчик, путешественник"
+          content="Антон - программист, разработчик, путешественник"
         />
         <meta property="og:locale" content="ru_RU" />
         <meta property="og:utl" content={`${process.env.BASE_URL}`} />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
-          content="Привет, меня зовут Антон Красильников и я WEB-разработчик"
+          content="Привет, меня зовут Антон и я WEB-разработчик"
         />
         <link rel="icon" type="image/ico" href="/favicon.ico" />
       </Head>
