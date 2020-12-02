@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "SET NODE_ENV=development && next dev",
+    "dev": "next dev",
     "server": "node server/index.js",
     "build": "next build",
-    "start": "SET NODE_ENV=production && node server/index.js",
+    "start": "NODE_ENV=production node server/index.js",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
