@@ -16,7 +16,7 @@ const Work = (props) => {
       >
         Назад
       </button>
-      <h1 className="display-4">{work.title}</h1>
+      <h1 className="display-5">{work.title}</h1>
       <p className="lead">{work.description}</p>
       <hr className="my-4" />
       <p>

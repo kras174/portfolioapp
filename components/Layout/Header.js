@@ -4,14 +4,7 @@ import Link from "next/link";
 import AlertContext from "../../context/AlertContext";
 import Alert from "../UI/Alert";
 
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from "reactstrap";
 
 import auth0 from "../../services/auth0";
 
@@ -81,11 +74,7 @@ const Header = (props) => {
             />
           </NavItem> */}
           <NavItem>
-            <MyNavLink
-              activeClassName="activeLink"
-              route="/cv"
-              title="Резюме"
-            />
+            <MyNavLink activeClassName="activeLink" route="/cv" title="Резюме" />
           </NavItem>
           {/* <NavItem>
             <MyNavLink
