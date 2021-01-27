@@ -2,7 +2,7 @@ const Footer = () => (
   <footer className="py-5 bg-dark">
     <div className="container">
       <p className="m-0 text-center text-white">
-        Copyright 2020 &copy; Портфолио на React (NextJS) и NodeJS 2020
+        Copyright 2021 &copy; Портфолио на React (NextJS) и NodeJS 2020
       </p>
       <p className="m-0 text-center text-white">
         <small>
