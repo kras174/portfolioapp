@@ -18,7 +18,7 @@ const Home = (props) => {
             )}
           </div>
           <div className="image-container col-sm-12 col-md-5 mb-5">
-            <div className="image"/>
+            <div className="image" />
           </div>
           <div className="text-container col-sm-12 col-md-7 mb-5">
             <p>
