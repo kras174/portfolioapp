@@ -54,7 +54,7 @@ const Header = (props) => {
 				</div>
 			</NavbarBrand>
 			<NavbarToggler onClick={toggle} />
-			<Collapse isOpen={isOpen} navbar>
+			<Collapse isOpen={isOpen} navbar className='mt-1'>
 				<Nav className='ml-auto' navbar>
 					<NavItem>
 						<MyNavLink activeClassName='activeLink' route='/' title='Главная' />
