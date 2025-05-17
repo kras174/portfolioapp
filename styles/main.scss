@@ -1,12 +1,12 @@
 //PAGES
-@import './index.scss';
-@import './portfolio.scss';
-@import './id.scss';
+@use 'index.scss';
+@use 'portfolio.scss';
+@use 'id.scss';
 
 //COMPONENTS
-@import './header.scss';
-@import './carousel.scss';
-@import './workList.scss';
+@use 'header.scss';
+@use 'carousel.scss';
+@use 'workList.scss';
 
 html,
 body {
